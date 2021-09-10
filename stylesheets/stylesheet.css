@@ -1,0 +1,422 @@
+html, body {
+    margin: 0 auto;
+	padding: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-family: system-ui;
+    font-weight: 300;
+}
+body {
+    height: max-content;
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a.anchor {
+    display: block;
+    position: relative;
+    top: -65px;
+    visibility: hidden;
+}
+:root {
+  --red1: #9e1b32;
+  --white1: #ffffff;
+  --grey1: #828A8F;
+  --grey2: #F7F7F7;
+  --black1: #000000;
+  --black2: #222222;
+}
+
+/* Navbar */
+.nav {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    animation: fadeIn linear 1s;
+    -webkit-animation: fadeIn linear 1s;
+    -moz-animation: fadeIn linear 1s;
+    -o-animation: fadeIn linear 1s;
+    -ms-animation: fadeIn linear 1s;
+}
+.navbar {
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    background-color: var(--white1);
+    box-shadow: 0 0 7px #0000001a;
+}
+.logo_div {
+    margin: 10px 15px;
+}
+.logo {
+    height: 43.75px;
+    cursor: pointer;
+}
+.menuLarge_div {
+    margin: 10px;
+    position: absolute;
+    right: 0;
+}
+.menuLarge_optionDiv {
+    display: inline-block;
+}
+.menuLarge_optionDiv a {
+    padding: 7px;
+    color: var(--black2);
+    font-size: 20px;
+    border-right: 1px solid var(--red1);
+}
+.menuLarge_optionDiv a:last-child {
+    padding: 7px;
+    color: var(--black2);
+    font-size: 20px;
+    border-right: none;
+}
+.menuLarge_optionDiv a:focus, .menuLarge_optionDiv a:hover {
+    color: var(--red1);
+}
+.menuSmall_div {
+    cursor: pointer;
+    margin: 10px 15px;
+    width: min-content;
+    height: min-content;
+    position: absolute;
+    right: 0px;
+    opacity: 0;
+    display: none;
+}
+.menuSmall_div:hover .menu_bar, .menuSmall_div:focus .menu_bar {
+    background-color: var(--red1);
+}
+.menu_bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--black2);
+    margin: 5px 0;
+}
+.menuOverlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #828A8Fe6;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.menuOverlay_optionDiv {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    opacity: 1;
+    transition: opacity 0.3s; 
+}
+.menuOverlay a {
+    width: 200px;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 36px;
+    color: var(--white1);
+    display: block;
+    
+}
+.menuOverlay a:hover, .menuOverlay a:focus {
+    color: var(--red1);
+}
+.menuOverlay .menuOverlay_closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    font-size: 40px;
+}
+.fade {
+    opacity: 0 !important;
+}
+
+/* Home Landing */
+.homeLanding {
+    width: 100%;
+    height: calc(100vh - 65px);
+    background-color: var(--grey1);
+    background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    margin: auto;
+}
+.homeLandingDiv {
+    width: 100%;
+    display: flexbox;
+    margin: auto;
+}
+.landingInfoDiv {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    animation: fadeIn linear 2s;
+    -webkit-animation: fadeIn linear 2s;
+    -moz-animation: fadeIn linear 2s;
+    -o-animation: fadeIn linear 2s;
+    -ms-animation: fadeIn linear 2s;
+}
+.landingLogoDiv {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.landingLogo {
+    width: 300px;
+}
+.landingText {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 40px;
+    text-align: center;
+    color: var(--white1);
+    font-weight: 100;
+    border-top: 1px solid var(--white1);
+}
+
+/* Landings */
+.infoLanding, .aboutLanding, .workLanding, .contactLanding {
+    width: 100%;
+    display: block;
+}
+.landingTitleDiv {
+    width: 100%;
+    text-align: center;
+}
+.landingTitle {
+    display: inline-block;
+    color: var(--black1);
+    font-size: 45px;
+    text-align: center;
+    border-bottom: 1px solid var(--black1);
+    padding: 25px 0;
+    margin: 0;
+}
+
+/* Info Landing */
+.infoLanding {
+    background-color: var(--white1);
+}
+.infoLandingTableDiv {
+    width: 100%;
+    padding: 40px 0 0 0;
+    display: inline-block;
+}
+.infoLandingTableCellDiv {
+    height: max-content;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%
+}
+.infoLandingTableCell {
+    width: calc(33% - 40px);
+    padding: 0 20px 30px 20px;
+    display: inline-block;
+    height: max-content;
+    text-align: center;
+    margin: 0 auto;
+}
+.infoLandingTableCellLogo {
+    width: 80px;
+    text-align: center;
+    margin: 0 auto;
+}
+.infoLandingTableCellTitle {
+    font-size: 30px;
+}
+.infoLandingTableCellDesc {
+    font-size: 15px;
+}
+
+/* About Landing */
+.aboutLanding {
+    height: 400px;
+    color: var(--black2);
+    border-color: var(--black2);
+}
+.aboutLandingLeft {
+    width: 70%;
+    float: left;
+    height: 100%;
+    background-color: var(--grey2);
+}
+.aboutLandingLeftText {
+    padding: 40px 0 30px 0;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 18px;
+    width: 80%;
+    max-width: 900px;
+}
+.aboutLandingRight {
+    width: 30%;
+    height: 100%;
+    float: right;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: var(--red1);
+}
+.aboutLandingRightDiv {
+    width: 100%;
+    display: flexbox;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.aboutLandingRightInfo {
+    width: 90%;
+    display: flex;
+    margin: 20px auto;
+}
+.aboutLandingRightLogo {
+    display: inline-block;
+    width: 150px;
+    padding-right: 20px;
+    fill: var(--white1);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.aboutLandingRightLogo svg {
+    width: 50px;
+}
+.aboutLandingRightTextDiv {
+    color: var(--white1);
+    display: inline-block;
+}
+.aboutLandingRightTitle {
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+.aboutLandingRightText {
+    font-size: 15px;
+}
+
+/* Work Landing */
+.workLanding {
+    width: 100%;
+    height: 400px;
+    background-color: var(--grey1);
+    background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    margin: auto;
+}
+.workLanding span {
+    color: var(--white1);
+    border-color: var(--white1)
+}
+.workLandingDiv {
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+.workLandingText {
+    padding: 30px 0 0 0;
+    color: var(--white1);
+    font-size: 25px;
+}
+.workImagesLanding {
+    width: 100%;
+    height: 500px;
+}
+
+/* Testimonials Landing */
+.testimonialsLanding {
+    width: 100%;
+    height: 400px;
+    background-color: var(--grey2);
+    color: var(--black2);
+    border-color: var(--black2);
+}
+
+/* Contact Landing */
+.contactLanding {
+    width: 100%;
+    height: 400px;
+}
+
+/* @MEDIA */
+@media screen and (max-height: 530px) {
+    .menuOverlay a {
+        font-size: 20px
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .menuLarge_div {
+        opacity: 0 !important;
+        display: none !important;
+    }
+    .menuSmall_div {
+        opacity: 1 !important;
+        display: block !important;
+    }
+    .landingPic {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1001px) {
+    .menuLarge_div {
+        opacity: 1 !important;
+        display: inline-block !important;
+    }
+    .menuSmall_div {
+        opacity: 0 !important;
+        display: none !important;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .infoLandingTableCellDiv {
+        width: 100%;
+    }
+    .infoLandingTableCell {
+        width: 60%;
+        padding: 0 0 30px 0;
+    }
+    .aboutLandingLeft {
+        width: 100%;
+        height: max-content;
+    }
+    .aboutLandingRight {
+        width: 100%;
+        height: max-content;
+    }
+}
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
