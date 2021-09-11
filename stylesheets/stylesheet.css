@@ -370,6 +370,9 @@ a.anchor {
     .landingPic {
         width: 100%;
     }
+    .landingInfoDiv {
+        width: 80%;
+    }
 }
 @media only screen and (min-width: 1001px) {
     .menuLarge_div {
