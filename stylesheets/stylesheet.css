@@ -325,7 +325,7 @@ a.anchor {
 .workLandingDiv {
     display: flex;
     margin: auto;
-    width: 100%;
+    width: 80%;
 }
 .workLandingText {
     padding: 30px 0 0 0;
