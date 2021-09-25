@@ -1,6 +1,6 @@
 # Milligan Remodeling
 
-[Image](https://github.com/OReynolds123/MilliganRemodeling/blob/main/image.png?raw=true)
+![Image](https://github.com/OReynolds123/MilliganRemodeling/blob/main/image.png?raw=true)
 
 View the website by pressing this link: [Link](https://oreynolds123.github.io/MilliganRemodeling/)
 
