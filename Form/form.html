@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Form HTML</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="Owen Reynolds" />
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <!-- Contact Landing -->
+    <div class="contactLanding">
+        <div class="contactLandingLeft">
+            <span class="landingTitle middle">Contact Me</span>
+        </div>
+        <div class="contactLandingRight">
+            <div class="contactLandingRightForm middle">
+                <form class="contactLandingForm" action="contact.php" method="post">
+                    <div class="contactLandingFormInputDiv" data-validate="Name is required">
+                        <span class="contactLandingFormInputTitle">Your Name</span>
+                        <input class="contactLandingFormInput" type="text" name="name" placeholder="Enter your full name...">
+                    </div>
+                    <div class="contactLandingFormInputDiv" data-validate="Valid email is required: ex@abc.xyz">
+                        <span class="contactLandingFormInputTitle">Email</span>
+                        <input class="contactLandingFormInput" type="text" name="email" placeholder="Enter your email addess...">
+                    </div>
+                    <div class="contactLandingFormInputDiv" data-validate="Message is required">
+                        <span class="contactLandingFormInputTitle">Message</span>
+                        <textarea class="contactLandingFormInput contactLandingFormInputText" name="message"
+                            placeholder="Your message here..."></textarea>
+                    </div>
+                    <div class="contactLandingFormInputDiv">
+                        <input class="contactLandingFormButton" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
