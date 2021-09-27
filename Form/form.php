@@ -1,5 +1,5 @@
 <?php
-if($_POST) {
+if ($_POST) {
     $name = "";
     $email = "";
     $message = "";
