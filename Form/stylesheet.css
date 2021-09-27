@@ -6,8 +6,6 @@ html, body {
     -webkit-tap-highlight-color: transparent;
     font-family: system-ui;
     font-weight: 300;
-    background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%);
-    
 }
 body {
     width: 100%;
@@ -30,11 +28,11 @@ body {
 }
 
 /* Landings */
-.contactLanding {
+.loginLanding, .contactLanding {
     width: 80%;
     display: block;
     z-index: 0;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 .landingTitleDiv {
     width: 100%;
@@ -52,10 +50,6 @@ body {
 
 /* Contact Landing */
 .contactLanding {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     height: 400px;
     color: var(--white1);
     border-color: var(--white1);
@@ -159,8 +153,21 @@ body {
     color: var(--black1);
 }
 
+/* Login Landing */
+.loginLanding {
+    height: 400px;
+    color: var(--white1);
+    border-color: var(--white1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0px var(--black2);
+}
+.loginLanding span {
+    color: var(--white1);
+    border-color: var(--white1)
+}
+
 @media screen and (max-width: 1000px) {
-    .contactLanding {
+    .contactLanding, .loginLanding {
         height: 720px !important;
     }
     .contactLandingRight {
@@ -201,7 +208,7 @@ body {
     }
 }
 @media screen and (max-width: 1200px) {
-    .contactLanding {
+    .contactLanding,.loginLanding {
         height: 600px;
     }
     .contactLandingLeft {
