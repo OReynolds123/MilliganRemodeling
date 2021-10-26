@@ -6,6 +6,8 @@ html, body {
     -webkit-tap-highlight-color: transparent;
     font-family: system-ui;
     font-weight: 300;
+    background-color: var(--bkg);
+    display: flex;
 }
 body {
     height: max-content;
@@ -22,12 +24,17 @@ a.anchor {
     visibility: hidden;
 }
 :root {
-  --red1: #9e1b32;
-  --white1: #ffffff;
-  --grey1: #828A8F;
-  --grey2: #F7F7F7;
-  --black1: #000000;
-  --black2: #222222;
+    --p1: #949ca3d0; /* 9e1b32*/
+    --p2: #1b5f9e; /* 9e1b32*/
+    --s1: #828A8F;
+    --s2: #F7F7F7;
+    --s2Hover: #e4eeff;
+    --white1: #ffffff;
+    --black1: #000000;
+    --black2: #222222;
+    --bkg: #ffffff;
+    --wdth: 100%;
+    --spacing: 20px;
 }
 
 /* TEMP POPUP */
@@ -45,7 +52,7 @@ a.anchor {
     width: 50%;
     height: 300px;
     border-radius: 25px;
-    background-color: #ffffffff;
+    background-color: var(--white1);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.507);
     position: relative;
     top: 50%;
@@ -61,7 +68,7 @@ a.anchor {
     right: 30px;
 }
 .tempPopupContainerX:hover {
-    color: var(--grey1);
+    color: var(--s1);
     cursor: pointer;
 }
 .tempPopupContainerTitle {
@@ -127,7 +134,7 @@ a.anchor {
     padding: 7px;
     color: var(--black2);
     font-size: 20px;
-    border-right: 1px solid var(--red1);
+    border-right: 1px solid var(--p2);
 }
 .menuLarge_optionDiv a:last-child {
     padding: 7px;
@@ -136,7 +143,7 @@ a.anchor {
     border-right: none;
 }
 .menuLarge_optionDiv a:focus, .menuLarge_optionDiv a:hover {
-    color: var(--red1);
+    color: var(--p2);
 }
 .menuSmall_div {
     cursor: pointer;
@@ -149,7 +156,7 @@ a.anchor {
     display: none;
 }
 .menuSmall_div:hover .menu_bar, .menuSmall_div:focus .menu_bar {
-    background-color: var(--red1);
+    background-color: var(--p2);
 }
 .menu_bar {
     width: 25px;
@@ -189,7 +196,7 @@ a.anchor {
     
 }
 .menuOverlay a:hover, .menuOverlay a:focus {
-    color: var(--red1);
+    color: var(--p2);
 }
 .menuOverlay .menuOverlay_closebtn {
     position: absolute;
@@ -204,15 +211,21 @@ a.anchor {
 
 /* Home Landing */
 .homeLanding {
-    width: 100%;
+    width: var(--wdth);
     height: calc(100vh - 65px);
-    background-color: var(--grey1);
+    background-color: var(--s1);
     background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     margin: auto;
+    margin-bottom: var(--spacing);
+    transform: all 0.5s ease-in;
+    -webkit-transform: all 0.5s ease-in;
+    -moz-transform: all 0.5s ease-in;
+    -ms-transform: all 0.5s ease-in;
+    -o-transform: all 0.5s ease-in;
 }
 .homeLandingDiv {
     width: 100%;
@@ -248,9 +261,11 @@ a.anchor {
 }
 
 /* Landings */
-.infoLanding, .aboutLanding, .workLanding, .contactLanding {
-    width: 100%;
+.infoLanding, .aboutLanding, .testimonialsLanding {
+    width: var(--wdth);
     display: block;
+    margin: auto;
+    margin-bottom: var(--spacing);
 }
 .landingTitleDiv {
     width: 100%;
@@ -311,7 +326,7 @@ a.anchor {
     width: 70%;
     float: left;
     height: 100%;
-    background-color: var(--grey2);
+    background-color: var(--s2);
 }
 .aboutLandingLeftText {
     padding: 40px 0 30px 0;
@@ -328,7 +343,7 @@ a.anchor {
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
-    background-color: var(--red1);
+    background-color: var(--p1);
 }
 .aboutLandingRightDiv {
     width: 100%;
@@ -364,50 +379,12 @@ a.anchor {
     font-size: 15px;
 }
 
-/* Work Landing */
-.workLanding {
-    width: 100%;
-    height: 400px;
-    background-color: var(--grey1);
-    background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    margin: auto;
-}
-.workLanding span {
-    color: var(--white1);
-    border-color: var(--white1)
-}
-.workLandingDiv {
-    display: flex;
-    margin: auto;
-    width: 80%;
-}
-.workLandingText {
-    padding: 30px 0 0 0;
-    color: var(--white1);
-    font-size: 25px;
-}
-.workImagesLanding {
-    width: 100%;
-    height: 500px;
-}
-
 /* Testimonials Landing */
 .testimonialsLanding {
-    width: 100%;
     height: 400px;
-    background-color: var(--grey2);
+    background-color: var(--s2);
     color: var(--black2);
     border-color: var(--black2);
-}
-
-/* Contact Landing */
-.contactLanding {
-    width: 100%;
-    height: 400px;
 }
 
 /* @MEDIA */
@@ -491,4 +468,40 @@ a.anchor {
 @-ms-keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
+}
+
+
+/* General Page Landing */
+.pageLanding {
+    width: var(--wdth);
+    height: calc(500px - 65px);
+    background-color: var(--s1);
+    background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    margin: auto;
+    margin-bottom: var(--spacing);
+}
+.pageLandingDiv {
+    width: 100%;
+    display: flexbox;
+    margin: auto;
+}
+.pagelandingInfoDiv {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    animation: fadeIn linear 2s;
+    -webkit-animation: fadeIn linear 2s;
+    -moz-animation: fadeIn linear 2s;
+    -o-animation: fadeIn linear 2s;
+    -ms-animation: fadeIn linear 2s;
+}
+.pagelandingTitle {
+    font-size: 45px;
+    text-align: center;
+    color: var(--white1);
+    font-weight: 100;
 }
