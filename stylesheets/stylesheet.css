@@ -213,7 +213,6 @@ a.anchor {
 .homeLanding {
     width: var(--wdth);
     height: calc(100vh - 65px);
-    background-color: var(--s1);
     background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -221,11 +220,11 @@ a.anchor {
     display: flex;
     margin: auto;
     margin-bottom: var(--spacing);
-    transform: all 0.5s ease-in;
-    -webkit-transform: all 0.5s ease-in;
-    -moz-transform: all 0.5s ease-in;
-    -ms-transform: all 0.5s ease-in;
-    -o-transform: all 0.5s ease-in;
+    animation: fadeIn linear 2s;
+    -webkit-animation: fadeIn linear 2s;
+    -moz-animation: fadeIn linear 2s;
+    -o-animation: fadeIn linear 2s;
+    -ms-animation: fadeIn linear 2s;
 }
 .homeLandingDiv {
     width: 100%;
@@ -236,11 +235,6 @@ a.anchor {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    animation: fadeIn linear 2s;
-    -webkit-animation: fadeIn linear 2s;
-    -moz-animation: fadeIn linear 2s;
-    -o-animation: fadeIn linear 2s;
-    -ms-animation: fadeIn linear 2s;
 }
 .landingLogoDiv {
     width: 300px;
