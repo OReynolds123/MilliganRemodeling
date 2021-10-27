@@ -295,8 +295,8 @@ a.anchor {
     margin-bottom: 25px;
 }
 
-/* Projects Landing */
-.projectsLanding {
+/* Products Landing */
+.productsLanding {
     position: relative;
     width: var(--wdth);
     display: block;
@@ -304,12 +304,13 @@ a.anchor {
     margin-bottom: var(--spacing);
     animation: fadeIn 0.5s linear;
 }
-.projectsLandingDiv {
+.productsLandingDiv {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
-.projectsLandingContainer {
+.productsLandingContainer {
     flex: calc(33% - 20px);
     margin: 0 10px;
     border-radius: 10px;
@@ -320,7 +321,7 @@ a.anchor {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-.projectsLandingContainerPicDiv {
+.productsLandingContainerPicDiv {
     width: 100%;
     height: max-content;
     display: flex;
@@ -328,7 +329,7 @@ a.anchor {
     padding: 0;
     position: relative;
 }
-.projectsLandingContainerPic {
+.productsLandingContainerPic {
     width: 100%;
     height: auto;
     position: relative;
@@ -338,7 +339,7 @@ a.anchor {
     -ms-border-radius: 10px 10px 0 0;
     -o-border-radius: 10px 10px 0 0;
 }
-.projectsLandingContainerPicGradient {
+.productsLandingContainerPicGradient {
     position: absolute;
     top: 0;
     left: 0;
@@ -351,23 +352,23 @@ a.anchor {
     -o-border-radius: 10px 10px 0 0;
     background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%);
 }
-.projectsLandingContainerTitleDiv {
+.productsLandingContainerTitleDiv {
     width: 80%;
     margin: auto;
     display: flex;
 }
-.projectsLandingContainerTitle {
+.productsLandingContainerTitle {
     font-size: 25px;
     height: 100%;
     flex: 50%;
     text-align: left;
     margin: auto;
 }
-.projectsLandingContainerLogo {
+.productsLandingContainerLogo {
     height: 100px;
     flex: 50%;
 }
-.projectsLandingContainerTextDiv {
+.productsLandingContainerTextDiv {
     width: 80%;
     margin: auto;
     display: flex;
@@ -392,8 +393,9 @@ a.anchor {
     .landingInfoDiv {
         width: 80%;
     }
-    .projectsLandingContainer {
-        flex: 100%;
+    .productsLandingContainer {
+        flex: 100% !important;
+        max-width: 500px;
         margin: 10px 0;
     }
     .tempPopupContainerX {
@@ -416,6 +418,13 @@ a.anchor {
     .menuSmall_div {
         opacity: 0 !important;
         display: none !important;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .productsLandingContainer {
+        flex: calc(50% - 20px);
+        margin: 10px;
+        flex-grow: 0;
     }
 }
 
