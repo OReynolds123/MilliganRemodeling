@@ -4,6 +4,7 @@ html, body {
     width: 100%;
     height: 100%;
     -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
     font-family: system-ui;
     font-weight: 300;
     background-color: var(--bkg);
@@ -32,8 +33,8 @@ a.anchor {
     --white1: #ffffff;
     --black1: #000000;
     --black2: #222222;
-    --bkg: #ffffff;
-    --wdth: 100%;
+    --bkg: #828A8F;
+    --wdth: 80%;
     --spacing: 20px;
 }
 
@@ -100,12 +101,9 @@ a.anchor {
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 1;
-    animation: fadeIn linear 1s;
-    -webkit-animation: fadeIn linear 1s;
-    -moz-animation: fadeIn linear 1s;
-    -o-animation: fadeIn linear 1s;
-    -ms-animation: fadeIn linear 1s;
+    z-index: 10;
+    animation: fadeIn 0.5s linear;
+    -webkit-animation: fadeIn 0.5s linear;
 }
 .navbar {
     width: 100%;
@@ -209,22 +207,34 @@ a.anchor {
     opacity: 0 !important;
 }
 
-/* Home Landing */
-.homeLanding {
-    width: var(--wdth);
-    height: calc(100vh - 65px);
-    background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
+.homeBackground {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(#22222240 0%,#22222240 60%, var(--bkg) 100%),url('../images/bkg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
+    animation: fadeIn 0.5s linear;
+    -webkit-animation: fadeIn 0.5s linear;
+}
+
+/* Landings */
+.homeLanding, .aboutLanding, .testimonialsLanding {
+    position: relative;
+    width: var(--wdth);
+    display: block;
     margin: auto;
     margin-bottom: var(--spacing);
-    animation: fadeIn linear 2s;
-    -webkit-animation: fadeIn linear 2s;
-    -moz-animation: fadeIn linear 2s;
-    -o-animation: fadeIn linear 2s;
-    -ms-animation: fadeIn linear 2s;
+    animation: fadeIn 0.5s linear;
+    -webkit-animation: fadeIn 0.5s linear;
+}
+
+/* Home Landing */
+.homeLanding {
+    margin-top: 65px;
+    height: 60vh;
 }
 .homeLandingDiv {
     width: 100%;
@@ -254,61 +264,8 @@ a.anchor {
     border-top: 1px solid var(--white1);
 }
 
-/* Landings */
-.infoLanding, .aboutLanding, .testimonialsLanding {
-    width: var(--wdth);
-    display: block;
-    margin: auto;
-    margin-bottom: var(--spacing);
-}
-.landingTitleDiv {
-    width: 100%;
-    text-align: center;
-}
-.landingTitle {
-    display: inline-block;
-    color: var(--black1);
-    font-size: 45px;
-    text-align: center;
-    border-bottom: 1px solid var(--black1);
-    padding: 25px 0;
-    margin: 0;
-}
+/* Projects Landing */
 
-/* Info Landing */
-.infoLanding {
-    background-color: var(--white1);
-}
-.infoLandingTableDiv {
-    width: 100%;
-    padding: 40px 0 0 0;
-    display: inline-block;
-}
-.infoLandingTableCellDiv {
-    height: max-content;
-    text-align: center;
-    margin: 0 auto;
-    width: 80%
-}
-.infoLandingTableCell {
-    width: calc(33% - 40px);
-    padding: 0 20px 30px 20px;
-    display: inline-block;
-    height: max-content;
-    text-align: center;
-    margin: 0 auto;
-}
-.infoLandingTableCellLogo {
-    width: 80px;
-    text-align: center;
-    margin: 0 auto;
-}
-.infoLandingTableCellTitle {
-    font-size: 30px;
-}
-.infoLandingTableCellDesc {
-    font-size: 15px;
-}
 
 /* About Landing */
 .aboutLanding {
@@ -323,7 +280,7 @@ a.anchor {
     background-color: var(--s2);
 }
 .aboutLandingLeftText {
-    padding: 40px 0 30px 0;
+    padding: 0 0 25px 0;
     margin: 0px auto;
     text-align: center;
     font-size: 18px;
@@ -425,12 +382,8 @@ a.anchor {
     }
 }
 @media screen and (max-width: 1200px) {
-    .infoLandingTableCellDiv {
-        width: 100%;
-    }
-    .infoLandingTableCell {
-        width: 60%;
-        padding: 0 0 30px 0;
+    .aboutLanding {
+        height: 800px;
     }
     .aboutLandingLeft {
         width: 100%;
@@ -467,35 +420,52 @@ a.anchor {
 
 /* General Page Landing */
 .pageLanding {
-    width: var(--wdth);
-    height: calc(500px - 65px);
-    background-color: var(--s1);
-    background-image: radial-gradient(circle at top left,rgba(34,34,34,0.5) 0%,rgba(31,62,78,0.6) 100%),url('../images/bkg.jpg');
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100vh - 65px);
+    background-image: linear-gradient(#22222240 0%,#22222240 60%, var(--bkg) 100%),url('../images/bkg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    margin: auto;
-    margin-bottom: var(--spacing);
+    animation: fadeIn 0.5s linear;
+    -webkit-animation: fadeIn 0.5s linear;
+}
+.pageLandingLogoDiv {
+    position: absolute;
+    top: 65px;
+    margin-top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }
 .pageLandingDiv {
-    width: 100%;
-    display: flexbox;
+    width: var(--wdth);
+    background-color: var(--white1);
+    border-radius: 10px;
+    display: block;
     margin: auto;
+    margin-top: 500px;
+    animation: fadeIn 0.5s linear;
+    -webkit-animation: fadeIn 0.5s linear;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
-.pagelandingInfoDiv {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    animation: fadeIn linear 2s;
-    -webkit-animation: fadeIn linear 2s;
-    -moz-animation: fadeIn linear 2s;
-    -o-animation: fadeIn linear 2s;
-    -ms-animation: fadeIn linear 2s;
+.pageLandingTitleDiv {
+    width: 100%;
+    text-align: center;
 }
-.pagelandingTitle {
+.pageLandingTitle {
+    display: inline-block;
+    color: var(--black1);
     font-size: 45px;
     text-align: center;
-    color: var(--white1);
-    font-weight: 100;
+    border-bottom: 1px solid var(--black1);
+    padding: 25px 0;
+    margin-bottom: 25px;
 }
