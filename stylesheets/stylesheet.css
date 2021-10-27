@@ -211,6 +211,7 @@ a.anchor {
     opacity: 0 !important;
 }
 
+/* Home Background */
 .homeBackground {
     position: absolute;
     top: 0;
@@ -224,21 +225,17 @@ a.anchor {
     -webkit-animation: fadeIn 0.5s linear;
 }
 
-/* Landings */
-.homeLanding, .testimonialsLanding {
+/* Home Landing */
+.homeLanding {
     position: relative;
     width: var(--wdth);
     display: block;
     margin: auto;
     margin-bottom: var(--spacing);
-    animation: fadeIn 0.5s linear;
-    -webkit-animation: fadeIn 0.5s linear;
-}
-
-/* Home Landing */
-.homeLanding {
     margin-top: 65px;
     height: 60vh;
+    animation: fadeIn 0.5s linear;
+    -webkit-animation: fadeIn 0.5s linear;
 }
 .homeLandingDiv {
     width: 100%;
@@ -268,14 +265,113 @@ a.anchor {
     border-top: 1px solid var(--white1);
 }
 
-/* Projects Landing */
+/* General Page Landing */
+.pageLanding {
+    position: relative;
+    width: var(--wdth);
+    display: block;
+    margin: auto;
+    margin-bottom: var(--spacing);
+    background-color: var(--white1);
+    border-radius: 10px;
+    animation: fadeIn 0.5s linear;
+    -webkit-animation: fadeIn 0.5s linear;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.pageLandingTitleDiv {
+    width: 100%;
+    text-align: center;
+}
+.pageLandingTitle {
+    display: inline-block;
+    color: var(--black1);
+    font-size: 45px;
+    text-align: center;
+    border-bottom: 1px solid var(--black1);
+    padding: 25px 0;
+    margin-bottom: 25px;
+}
 
-/* Testimonials Landing */
-.testimonialsLanding {
-    height: 400px;
-    background-color: var(--s2);
-    color: var(--black2);
-    border-color: var(--black2);
+/* Projects Landing */
+.projectsLanding {
+    position: relative;
+    width: var(--wdth);
+    display: block;
+    margin: auto;
+    margin-bottom: var(--spacing);
+    animation: fadeIn 0.5s linear;
+}
+.projectsLandingDiv {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.projectsLandingContainer {
+    flex: calc(33% - 20px);
+    margin: 0 10px;
+    border-radius: 10px;
+    background-color: white;
+    height: max-content;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.projectsLandingContainerPicDiv {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.projectsLandingContainerPic {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+}
+.projectsLandingContainerPicGradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%);
+}
+.projectsLandingContainerTitleDiv {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+.projectsLandingContainerTitle {
+    font-size: 25px;
+    height: 100%;
+    flex: 50%;
+    text-align: left;
+    margin: auto;
+}
+.projectsLandingContainerLogo {
+    height: 100px;
+    flex: 50%;
+}
+.projectsLandingContainerTextDiv {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    margin-bottom: 25px;
 }
 
 /* @MEDIA */
@@ -295,6 +391,10 @@ a.anchor {
     }
     .landingInfoDiv {
         width: 80%;
+    }
+    .projectsLandingContainer {
+        flex: 100%;
+        margin: 10px 0;
     }
     .tempPopupContainerX {
         font-size: 35px;
@@ -339,35 +439,4 @@ a.anchor {
 @-ms-keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
-}
-
-
-/* General Page Landing */
-.pageLanding {
-    position: relative;
-    width: var(--wdth);
-    display: block;
-    margin: auto;
-    margin-bottom: var(--spacing);
-    background-color: var(--white1);
-    border-radius: 10px;
-    animation: fadeIn 0.5s linear;
-    -webkit-animation: fadeIn 0.5s linear;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
-.pageLandingTitleDiv {
-    width: 100%;
-    text-align: center;
-}
-.pageLandingTitle {
-    display: inline-block;
-    color: var(--black1);
-    font-size: 45px;
-    text-align: center;
-    border-bottom: 1px solid var(--black1);
-    padding: 25px 0;
-    margin-bottom: 25px;
 }
