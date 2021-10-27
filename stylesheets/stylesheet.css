@@ -225,7 +225,7 @@ a.anchor {
 }
 
 /* Landings */
-.homeLanding, .aboutLanding, .testimonialsLanding {
+.homeLanding, .testimonialsLanding {
     position: relative;
     width: var(--wdth);
     display: block;
@@ -269,70 +269,6 @@ a.anchor {
 }
 
 /* Projects Landing */
-
-
-/* About Landing */
-.aboutLanding {
-    height: 400px;
-    color: var(--black2);
-    border-color: var(--black2);
-}
-.aboutLandingLeft {
-    width: 70%;
-    float: left;
-    height: 100%;
-    background-color: var(--s2);
-}
-.aboutLandingLeftText {
-    padding: 0 0 25px 0;
-    margin: 0px auto;
-    text-align: center;
-    font-size: 18px;
-    width: 80%;
-    max-width: 900px;
-}
-.aboutLandingRight {
-    width: 30%;
-    height: 100%;
-    float: right;
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
-    background-color: var(--p1);
-}
-.aboutLandingRightDiv {
-    width: 100%;
-    display: flexbox;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.aboutLandingRightInfo {
-    width: 90%;
-    display: flex;
-    margin: 20px auto;
-}
-.aboutLandingRightLogo {
-    display: inline-block;
-    width: 150px;
-    padding-right: 20px;
-    fill: var(--white1);
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.aboutLandingRightLogo svg {
-    width: 50px;
-}
-.aboutLandingRightTextDiv {
-    color: var(--white1);
-    display: inline-block;
-}
-.aboutLandingRightTitle {
-    font-size: 25px;
-    padding-bottom: 10px;
-}
-.aboutLandingRightText {
-    font-size: 15px;
-}
 
 /* Testimonials Landing */
 .testimonialsLanding {
@@ -380,19 +316,6 @@ a.anchor {
     .menuSmall_div {
         opacity: 0 !important;
         display: none !important;
-    }
-}
-@media screen and (max-width: 1200px) {
-    .aboutLanding {
-        height: 800px;
-    }
-    .aboutLandingLeft {
-        width: 100%;
-        height: max-content;
-    }
-    .aboutLandingRight {
-        width: 100%;
-        height: max-content;
     }
 }
 
