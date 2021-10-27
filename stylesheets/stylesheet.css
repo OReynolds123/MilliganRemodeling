@@ -171,7 +171,11 @@ a.anchor {
     left: 0;
     background-color: #828A8Fe6;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
 }
 .menuOverlay_optionDiv {
     position: relative;
@@ -320,6 +324,11 @@ a.anchor {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
 }
 .productsLandingContainerPicDiv {
     width: 100%;
