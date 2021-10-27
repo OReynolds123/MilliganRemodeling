@@ -175,12 +175,16 @@ a.anchor {
 }
 .menuOverlay_optionDiv {
     position: relative;
-    top: 25%;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
     text-align: center;
-    margin-top: 30px;
     opacity: 1;
-    transition: opacity 0.3s; 
+    transition: opacity 0.3s;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
 .menuOverlay a {
     width: 200px;
@@ -353,9 +357,6 @@ a.anchor {
         opacity: 1 !important;
         display: block !important;
     }
-    .landingPic {
-        width: 100%;
-    }
     .landingInfoDiv {
         width: 80%;
     }
@@ -420,35 +421,13 @@ a.anchor {
 
 /* General Page Landing */
 .pageLanding {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: calc(100vh - 65px);
-    background-image: linear-gradient(#22222240 0%,#22222240 60%, var(--bkg) 100%),url('../images/bkg.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: fadeIn 0.5s linear;
-    -webkit-animation: fadeIn 0.5s linear;
-}
-.pageLandingLogoDiv {
-    position: absolute;
-    top: 65px;
-    margin-top: 65px;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-}
-.pageLandingDiv {
+    position: relative;
     width: var(--wdth);
-    background-color: var(--white1);
-    border-radius: 10px;
     display: block;
     margin: auto;
-    margin-top: 500px;
+    margin-bottom: var(--spacing);
+    background-color: var(--white1);
+    border-radius: 10px;
     animation: fadeIn 0.5s linear;
     -webkit-animation: fadeIn 0.5s linear;
     -webkit-border-radius: 10px;

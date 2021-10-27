@@ -1,6 +1,7 @@
 /* Contact Landing */
 .pageLandingDiv {
     max-width: 1000px;
+    margin: auto;
 }
 .contactLandingSuccessBanner {
     position: absolute;
