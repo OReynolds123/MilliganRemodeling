@@ -91,7 +91,12 @@
                                     placeholder="Your message here..."></textarea>
                             </div>
                             <div class="contactLandingFormInputDiv">
-                                <input class="contactLandingFormButton" type="submit">
+                                <div class="contactLandingFormBtnDiv">
+                                    <div class="contactLandingFormBtnDivWrap">
+                                        <div class="contactLandingFormBtnBkg" style="left: -100%;"></div>
+                                        <input class="contactLandingFormBtn" onmouseover="moveBtnBkgRight();" onmouseleave="moveBtnBkgLeft();" type="submit">
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -103,5 +108,6 @@
 </body>
 
 <script src="../javascripts/navbar.js"></script>
+<script src="../javascripts/contact.js"></script>
 
 </html>
