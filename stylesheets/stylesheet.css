@@ -317,9 +317,34 @@ a.anchor {
     color: var(--black1);
     font-weight: 400;
 }
-.processLandingContainerLogo {
+.processLandingContainerButtonDiv {
     height: 100px;
     flex: 50%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.processLandingContainerButton {
+    text-align: center;
+    margin: auto;
+    background-color: var(--p2);
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-weight: 400;
+    color: var(--white1);
+    transition: all 0.2s ease-in-out;
+    border: 1px solid var(--p2);
+}
+.processLandingContainerButton:hover {
+    cursor: pointer;
+    background-color: var(--p1);
+    border: 1px solid var(--p2);
 }
 .processLandingContainerTextDiv {
     width: 80%;
@@ -435,11 +460,11 @@ a.anchor {
     padding: 10px 20px;
     background-color: var(--p2);
     width: 100px;
-    border-radius: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
     font-weight: 400;
     color: var(--white1);
     transition: all 0.2s ease-in-out;
@@ -472,6 +497,12 @@ a.anchor {
 .testimonialsLandingDiv {
     width: 100%;
     height: 500px;
+}
+.testimonialsLandingTitle {
+    font-size: 40px;
+    text-align: left;
+    color: var(--white1);
+    font-weight: 100;
 }
 
 /* @MEDIA */
