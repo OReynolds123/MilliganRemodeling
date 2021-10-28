@@ -19,10 +19,3 @@ function init() {
         }
     }
 }
-
-function moveBtnBkgRight() {
-    document.getElementsByClassName("contactLandingFormBtnBkg")[0].style.left = "0";
-}
-function moveBtnBkgLeft() {
-    document.getElementsByClassName("contactLandingFormBtnBkg")[0].style.left = "-100%";
-}

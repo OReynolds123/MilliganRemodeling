@@ -32,6 +32,7 @@ a.anchor {
     --bkg: #828A8F;
     --wdth: 80%;
     --spacing: 20px;
+    --bdrRad: 10px;
 }
 
 /* Navbar */
@@ -190,21 +191,23 @@ a.anchor {
     width: 50%;
 }
 .landingLogoDiv {
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 .landingLogo {
-    width: 300px;
+    width: 100%;
 }
 .landingText {
     margin-top: 30px;
-    padding-top: 20px;
+    padding-top: var(--spacing);
     font-size: 40px;
     text-align: center;
     color: var(--white1);
     font-weight: 100;
     border-top: 1px solid var(--white1);
+    width: 100%;
 }
 
 /* General Page Landing */
@@ -215,13 +218,13 @@ a.anchor {
     margin: auto;
     margin-bottom: var(--spacing);
     background-color: var(--white1);
-    border-radius: 10px;
+    border-radius: var(--bdrRad);
     animation: fadeIn 0.5s linear;
     -webkit-animation: fadeIn 0.5s linear;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    -webkit-border-radius: var(--bdrRad);
+    -moz-border-radius: var(--bdrRad);
+    -ms-border-radius: var(--bdrRad);
+    -o-border-radius: var(--bdrRad);
 }
 .pageLandingTitleDiv {
     width: 100%;
@@ -256,13 +259,13 @@ a.anchor {
 .processLandingContainer {
     flex: calc(33% - var(--spacing));
     margin: 0;
-    border-radius: 10px;
+    border-radius: var(--bdrRad);
     background-color: white;
-    height: max-content;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    height: 600px;
+    -webkit-border-radius: var(--bdrRad);
+    -moz-border-radius: var(--bdrRad);
+    -ms-border-radius: var(--bdrRad);
+    -o-border-radius: var(--bdrRad);
     transition: all 0.5s linear;
     -webkit-transition: all 0.5s linear;
     -moz-transition: all 0.5s linear;
@@ -274,34 +277,40 @@ a.anchor {
 }
 .processLandingContainerPicDiv {
     width: 100%;
-    height: max-content;
+    height: 50%;
     display: flex;
     margin: 0;
     padding: 0;
-    position: relative;
 }
 .processLandingContainerPic {
     width: 100%;
-    height: auto;
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    -webkit-border-radius: 10px 10px 0 0;
-    -moz-border-radius: 10px 10px 0 0;
-    -ms-border-radius: 10px 10px 0 0;
-    -o-border-radius: 10px 10px 0 0;
-}
-.processLandingContainerPicGradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
-    border-radius: 10px 10px 0 0;
-    -webkit-border-radius: 10px 10px 0 0;
-    -moz-border-radius: 10px 10px 0 0;
-    -ms-border-radius: 10px 10px 0 0;
-    -o-border-radius: 10px 10px 0 0;
-    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -webkit-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -moz-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -ms-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+}
+.processLandingContainer:nth-child(1) .processLandingContainerPicDiv .processLandingContainerPic {
+    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%), url("../images/bkg1.jpg");
+}
+.processLandingContainer:nth-child(2) .processLandingContainerPicDiv .processLandingContainerPic {
+    border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    background: linear-gradient(var(--white1) 0%,#88888880 50%, #00000000 100%), url("../images/bkg1.jpg");
+    -webkit-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -moz-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -ms-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -o-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+}
+.processLandingContainer:nth-child(3) .processLandingContainerPicDiv .processLandingContainerPic {
+    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%), url("../images/bkg1.jpg");
+}
+.processLandingContainerInfoDiv {
+    height: 50%;
+    display: block;
 }
 .processLandingContainerTitleDiv {
     width: 80%;
@@ -324,33 +333,15 @@ a.anchor {
     justify-content: center;
     justify-items: center;
 }
-.processLandingContainerButton {
-    text-align: center;
+.processLandingContainerButtonDiv .btnDiv {
     margin: auto;
-    background-color: var(--p2);
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    font-weight: 400;
-    color: var(--white1);
-    transition: all 0.2s ease-in-out;
-    border: 1px solid var(--p2);
-}
-.processLandingContainerButton:hover {
-    cursor: pointer;
-    background-color: var(--p1);
-    border: 1px solid var(--p2);
+    margin-right: 0;
 }
 .processLandingContainerTextDiv {
     width: 80%;
     margin: auto;
     display: flex;
-    margin-bottom: 25px;
+    margin-bottom: var(--spacing);
 }
 
 /* Projects Landing */
@@ -361,13 +352,13 @@ a.anchor {
     justify-content: center;
 }
 .projectsLandingContainerLeft {
-    flex: 30%;
-    border-radius: 10px 0 0 10px;
+    flex: 100%;
+    border-radius: var(--bdrRad) var(--bdrRad) 0 0;
     background-color: var(--p2);
-    -webkit-border-radius: 10px 0 0 10px;
-    -moz-border-radius: 10px 0 0 10px;
-    -ms-border-radius: 10px 0 0 10px;
-    -o-border-radius: 10px 0 0 10px;
+    -webkit-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -moz-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -ms-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
     transition: all 0.5s linear;
     -webkit-transition: all 0.5s linear;
     -moz-transition: all 0.5s linear;
@@ -379,16 +370,16 @@ a.anchor {
     width: 80%;
     margin: auto;
     display: flex;
-    margin-bottom: 25px;
+    margin-bottom: var(--spacing);
 }
 .projectsLandingContainerLeftTitleDiv {
-    margin-top: 25px;
+    margin-top: var(--spacing);
 }
 .projectsLandingContainerLeftTitle {
     font-size: 25px;
     height: 100%;
     flex: 50%;
-    text-align: left;
+    text-align: center;
     margin: auto;
     font-weight: 400;
 }
@@ -396,35 +387,39 @@ a.anchor {
     width: 50px;
     height: 50px;
     background-color: var(--white1);
+    margin: auto;
 }
 .projectsLandingContainerLeftOptionsDiv {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 }
-.projectsLandingContainerLeftOptions {
-    display: block;
-    text-align: center;
-    padding: 10px 20px;
-    background-color: var(--p1);
-    margin: 5px 0;
-    width: 100px;
-    border-radius: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
-    font-weight: 400;
+.projectsLandingContainerLeftOptionsDiv .btnDiv {
+    flex: 100%;
+    margin: 5px;
+    margin-bottom: 10px;
+    min-width: 150px;
+    max-width: 150px;
 }
-.projectsLandingContainerLeftOptions:hover {
-    cursor: pointer;
+.projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap {
+    box-shadow: 0 5px 3px 0 #ffffff80;
+}
+.projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap .btnBkg {
+    background: linear-gradient(to left, var(--p1) 0%, var(--p1) 60%, var(--white1) 100%);
+}
+.projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap .btn:hover {
+    color: var(--black1);
 }
 .projectsLandingContainerRight {
-    flex: 70%;
-    border-radius: 0 10px 10px 0;
+    flex: 100%;
+    border-radius: 0 0 var(--bdrRad) var(--bdrRad);
     background-color: white;
-    -webkit-border-radius: 0 10px 10px 0;
-    -moz-border-radius: 0 10px 10px 0;
-    -ms-border-radius: 0 10px 10px 0;
-    -o-border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -moz-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -ms-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -o-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
     transition: all 0.5s linear;
     -webkit-transition: all 0.5s linear;
     -moz-transition: all 0.5s linear;
@@ -454,27 +449,6 @@ a.anchor {
     margin: auto;
     margin-top: var(--spacing);
 }
-.projectsLandingContainerRightButton {
-    display: block;
-    text-align: center;
-    padding: 10px 20px;
-    background-color: var(--p2);
-    width: 100px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    font-weight: 400;
-    color: var(--white1);
-    transition: all 0.2s ease-in-out;
-    border: 1px solid var(--p2);
-}
-.projectsLandingContainerRightButton:hover {
-    cursor: pointer;
-    background-color: var(--p1);
-    border: 1px solid var(--p2);
-}
 .projectsLandingContainerRightImgDiv {
     flex: 50%;
     margin: auto;
@@ -482,12 +456,13 @@ a.anchor {
 }
 .projectsLandingContainerRightImg {
     height: 300px;
+    margin: var(--spacing);
     width: 90%;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: var(--bdrRad);
+    -webkit-border-radius: var(--bdrRad);
+    -moz-border-radius: var(--bdrRad);
+    -ms-border-radius: var(--bdrRad);
+    -o-border-radius: var(--bdrRad);
     background: linear-gradient(to left top, #00000000 70%, #ffffffff 100%), url(../images/bkg1.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -505,10 +480,83 @@ a.anchor {
     font-weight: 100;
 }
 
+
+/* General Button */
+.btnDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+}
+.btnDivWrap {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 5px 5px 0 var(--p1);
+    -webkit-border-radius: 25;
+    -moz-border-radius: 25;
+    -ms-border-radius: 25;
+    -o-border-radius: 25;
+}
+.btnBkg {
+    position: absolute;
+    z-index: -1;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(to left, var(--p2) 0%, var(--p2) 50%, #ff768f 100%);
+    top: 0;
+    left: -100%;
+    transition: all .4s;
+}
+.btn {
+    font-size: 16px;
+    color: var(--white1);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+}
+.btn:hover {
+    cursor: pointer;
+}
+.btnDivWrap input {
+    outline: none;
+    border: none;
+}
+.btnDivWrap a {
+    outline: none;
+    border: none;
+}
+
 /* @MEDIA */
-@media screen and (max-height: 530px) {
+@media screen and (max-width: 450px) {
+    .processLandingContainerPicDiv {
+        height: 40%;
+    }
+    .processLandingContainerInfoDiv {
+        height: 60%;
+    }
+    .processLandingContainerButtonDiv .btnDiv {
+        max-width: 120px;
+    }
+    .landingText {
+        font-size: 30px;
+    }
+}
+@media screen and (max-height: 600px) {
     .menuOverlay a {
-        font-size: 20px
+        font-size: 30px
+    }
+    .landingText {
+        font-size: 30px;
     }
 }
 @media only screen and (max-width: 1000px) {
@@ -523,17 +571,6 @@ a.anchor {
     .landingInfoDiv {
         width: 80%;
     }
-    .tempPopupContainerX {
-        font-size: 35px;
-    }
-    .tempPopupContainerTitle {
-        font-size: 25px;
-        text-align: left;
-        margin-top: 5px;
-    }
-    .tempPopupContainerText {
-        font-size: 20px;
-    }
     .processLandingContainer {
         flex: 100% !important;
         max-width: unset !important;
@@ -547,30 +584,7 @@ a.anchor {
     .processLandingContainer:nth-child(3) {
         margin: 0 !important;
     }
-    .projectsLandingContainerLeft {
-        flex: 100%;
-        border-radius: 10px 10px 0 0;
-        -webkit-border-radius: 10px 10px 0 0;
-        -moz-border-radius: 10px 10px 0 0;
-        -ms-border-radius: 10px 10px 0 0;
-        -o-border-radius: 10px 10px 0 0;
-    }
-    .projectsLandingContainerLeftTitle {
-        text-align: center;
-    }
-    .projectsLandingContainerLeftLogoDiv {
-        justify-content: center;
-    }
-    .projectsLandingContainerLeftOptions {
-        margin: 5px auto;
-    }
     .projectsLandingContainerRight {
-        flex: 100%;
-        border-radius: 0 0 10px 10px;
-        -webkit-border-radius: 0 0 10px 10px;
-        -moz-border-radius: 0 0 10px 10px;
-        -ms-border-radius: 0 0 10px 10px;
-        -o-border-radius: 0 0 10px 10px;
         flex-wrap: wrap;
         justify-content: center;
         justify-items: center;
@@ -580,7 +594,7 @@ a.anchor {
         text-align: center;
         margin-top: var(--spacing) !important;
     }
-    .projectsLandingContainerRightButton {
+    .projectsLandingContainerRightButtonDiv .btnDiv {
         margin: auto;
     }
     .projectsLandingContainerRightImgDiv {

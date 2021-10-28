@@ -17,3 +17,10 @@ documentBody.addEventListener('click', function (e) {
         menuOverlay_close();
     }
 });
+
+function moveBtnBkgRight(e) {
+    e.parentElement.children[0].style.left = "0";
+}
+function moveBtnBkgLeft(e) {
+    e.parentElement.children[0].style.left = "-100%";
+}
