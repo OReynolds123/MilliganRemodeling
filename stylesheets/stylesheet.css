@@ -26,7 +26,7 @@ a.anchor {
 }
 :root {
     --p1: #949ca3d0; /* 9e1b32*/
-    --p2: #1b5f9e; /* 9e1b32*/
+    --p2: #9e1b32; /*  1b5f9e*/
     --s1: #828A8F;
     --s2: #F7F7F7;
     --s2Hover: #e4eeff;
@@ -316,8 +316,8 @@ a.anchor {
     justify-content: center;
 }
 .processLandingContainer {
-    flex: calc(33% - 20px);
-    margin: 0 10px;
+    flex: calc(33% - var(--spacing));
+    margin: 0;
     border-radius: 10px;
     background-color: white;
     height: max-content;
@@ -330,6 +330,9 @@ a.anchor {
     -moz-transition: all 0.5s linear;
     -ms-transition: all 0.5s linear;
     -o-transition: all 0.5s linear;
+}
+.processLandingContainer:nth-child(2) {
+    margin: 0 var(--spacing);
 }
 .processLandingContainerPicDiv {
     width: 100%;
@@ -463,7 +466,7 @@ a.anchor {
     display: flex;
 }
 .projectsLandingContainerRightTextDiv {
-    width: auto;
+    flex: auto;
     margin: auto;
     display: block;
     text-align: left;
@@ -479,20 +482,22 @@ a.anchor {
     width: 80%;
 }
 .projectsLandingContainerRightImgDiv {
-    width: auto;
-    margin: auto 25px auto 0;
+    flex: 50%;
+    margin: auto;
     display: flex;
 }
 .projectsLandingContainerRightImg {
-    max-height: 300px;
-    height: auto;
+    height: 300px;
+    width: 90%;
     margin: auto;
-    width: 100%;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    background: linear-gradient(to right top, #00000000 70%, #ffffffff 100%), url(../images/bkg1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Testimonials Landing*/
@@ -519,11 +524,6 @@ a.anchor {
     .landingInfoDiv {
         width: 80%;
     }
-    .processLandingContainer {
-        flex: 100% !important;
-        max-width: 500px;
-        margin: 10px 0;
-    }
     .tempPopupContainerX {
         font-size: 35px;
     }
@@ -534,6 +534,19 @@ a.anchor {
     }
     .tempPopupContainerText {
         font-size: 20px;
+    }
+    .processLandingContainer {
+        flex: 100% !important;
+        max-width: unset !important;
+    }
+    .processLandingContainer:nth-child(1) {
+        margin: 0 !important;
+    }
+    .processLandingContainer:nth-child(2) {
+        margin: var(--spacing) 0 !important;
+    }
+    .processLandingContainer:nth-child(3) {
+        margin: 0 !important;
     }
     .projectsLandingContainerLeft {
         flex: 100%;
@@ -559,13 +572,19 @@ a.anchor {
         -moz-border-radius: 0 0 10px 10px;
         -ms-border-radius: 0 0 10px 10px;
         -o-border-radius: 0 0 10px 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-items: center;
     }
     .projectsLandingContainerRightTextDiv {
-        width: 50%;
+        flex: 100% !important;
+        text-align: center;
+        margin-top: var(--spacing) !important;
     }
     .projectsLandingContainerRightImgDiv {
-        width: 50%;
-        margin: 25px 25px 25px 0;
+        flex: 100% !important;
+        margin: var(--spacing) !important;
+
     }
 }
 @media only screen and (min-width: 1001px) {
@@ -580,9 +599,21 @@ a.anchor {
 }
 @media only screen and (max-width: 1200px) {
     .processLandingContainer {
-        flex: calc(50% - 20px);
-        margin: 10px;
+        flex: calc(50% - calc(var(--spacing)/2));
         flex-grow: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .processLandingContainer:nth-child(1) {
+        margin: 0 var(--spacing) 0 0;
+    }
+    .processLandingContainer:nth-child(2) {
+        margin: 0 0 0 0;
+    }
+    .processLandingContainer:nth-child(3) {
+        margin: var(--spacing) 0 0 0;
+        flex: 100%;
+        max-width: 500px;
     }
 }
 
