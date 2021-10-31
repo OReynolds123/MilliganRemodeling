@@ -10,6 +10,11 @@
     line-height: 50px;
     text-align: center;
     text-anchor: middle;
+    border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -webkit-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -moz-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -ms-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
 }
 .contactLandingDiv {
     width: 100%;
