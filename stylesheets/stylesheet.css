@@ -33,6 +33,7 @@ a.anchor {
     --wdth: 80%;
     --spacing: 20px;
     --bdrRad: 10px;
+    --bkShadClr: #00000080;
 }
 
 /* Navbar */
@@ -225,6 +226,7 @@ a.anchor {
     -moz-border-radius: var(--bdrRad);
     -ms-border-radius: var(--bdrRad);
     -o-border-radius: var(--bdrRad);
+    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
 }
 .pageLandingTitleDiv {
     width: 100%;
@@ -271,6 +273,7 @@ a.anchor {
     -moz-transition: all 0.5s linear;
     -ms-transition: all 0.5s linear;
     -o-transition: all 0.5s linear;
+    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
 }
 .processLandingContainer:nth-child(2) {
     margin: 0 var(--spacing);
@@ -285,9 +288,9 @@ a.anchor {
 .processLandingContainerPic {
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     border-radius: var(--bdrRad) var(--bdrRad) 0 0;
     -webkit-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
     -moz-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
@@ -350,6 +353,12 @@ a.anchor {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-radius: var(--bdrRad);
+    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
+    -webkit-border-radius: var(--bdrRad);
+    -moz-border-radius: var(--bdrRad);
+    -ms-border-radius: var(--bdrRad);
+    -o-border-radius: var(--bdrRad);
 }
 .projectsLandingContainerLeft {
     flex: 100%;
@@ -404,7 +413,7 @@ a.anchor {
     max-width: 150px;
 }
 .projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap {
-    box-shadow: 0 5px 3px 0 #ffffff80;
+    box-shadow: 5px 5px 3px 0 #ffffff40;
 }
 .projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap .btnBkg {
     background: linear-gradient(to left, var(--p1) 0%, var(--p1) 60%, var(--white1) 100%);
@@ -463,7 +472,8 @@ a.anchor {
     -moz-border-radius: var(--bdrRad);
     -ms-border-radius: var(--bdrRad);
     -o-border-radius: var(--bdrRad);
-    background: linear-gradient(to left top, #00000000 70%, #ffffffff 100%), url(../images/bkg1.jpg);
+    /*background: linear-gradient(to left top, #00000000 70%, #ffffffff 100%), url(../images/bkg1.jpg);*/
+    background: url(../images/bkg1.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -472,6 +482,12 @@ a.anchor {
 .testimonialsLandingDiv {
     width: 100%;
     height: 500px;
+    border-radius: var(--bdrRad);
+    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
+    -webkit-border-radius: var(--bdrRad);
+    -moz-border-radius: var(--bdrRad);
+    -ms-border-radius: var(--bdrRad);
+    -o-border-radius: var(--bdrRad);
 }
 .testimonialsLandingTitle {
     font-size: 40px;
@@ -497,7 +513,7 @@ a.anchor {
     border-radius: 25px;
     overflow: hidden;
     margin: 0 auto;
-    box-shadow: 0 5px 5px 0 var(--p1);
+    box-shadow: 5px 5px 3px 0 var(--p1);
     -webkit-border-radius: 25;
     -moz-border-radius: 25;
     -ms-border-radius: 25;
