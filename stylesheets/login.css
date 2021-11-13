@@ -1,0 +1,116 @@
+input {
+    outline: none;
+    border: none;
+}
+button {
+    outline: none!important;
+    border: none;
+    background: 0 0;
+}
+
+.pageLanding {
+    max-width: 700px;
+}
+
+/* Login Form */
+.loginLandingSuccessBanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    background-color: #00bb0080;
+    color: var(--white1);
+    line-height: 50px;
+    text-align: center;
+    text-anchor: middle;
+    border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -webkit-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -moz-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -ms-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+}
+.loginFormDiv {
+    max-width: 550px;
+    width: calc(90% - 110px);
+    height: min-content;
+    margin: auto;
+    background: var(--white1);
+    border-radius: var(--bdrRad);
+    overflow: hidden;
+    padding-bottom: 23px;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-border-radius: var(--bdrRad);
+    -moz-border-radius: var(--bdrRad);
+    -ms-border-radius: var(--bdrRad);
+    -o-border-radius: var(--bdrRad);
+}
+.loginForm {
+    width: 100%;
+}
+.loginFormInputDiv {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #d9d9d9;
+    margin-bottom: 23px;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+.loginFormInputDiv:focus-within {
+    border-bottom: 2px solid var(--p2);
+}
+.loginFormInputDiv:focus-within .loginFormInputTitle {
+    color: var(--p2);
+}
+.loginFormInputDiv:focus-within .loginFormInputIco {
+    fill: var(--p2);
+}
+.loginFormInputTitle {
+    font-size: 20px;
+    color: var(--black1);
+    line-height: 1.5;
+    padding-left: 7px;
+    transition: all 0.4s ease-in-out;
+}
+.loginFormInput {
+    font-size: 16px;
+    color: var(--black1);
+    line-height: 1.2;
+    display: block;
+    width: calc(100% - 50px);
+    height: 55px;
+    background: 0 0;
+    padding: 0 7px 0 43px;
+}
+.loginFormInputIco {
+    position: absolute;
+    width: 15px;
+    height: 55px;
+    bottom: 0px;
+    left: 15px;
+    display: flex;
+    fill: var(--p1);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+.loginFormInputIco svg {
+    width: 100%;
+    margin: auto;
+    height: auto;
+    fill: inherit;
+}
+.loginFormBtnDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

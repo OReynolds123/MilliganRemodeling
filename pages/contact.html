@@ -25,7 +25,7 @@
                 <a href="about.html" onclick="menuOverlay_close()">About Us</a>
                 <a href="work.html" onclick="menuOverlay_close()">Our Work</a>
                 <a href="contact.html" onclick="menuOverlay_close()">Contact Us</a>
-                <a href="customer.html" onclick="menuOverlay_close()">Customer</a>
+                <a href="login.html" onclick="menuOverlay_close()">Customer</a>
             </div>
         </div>
         <div class="navbar">
@@ -39,7 +39,7 @@
                     <a href="about.html">About Us</a>
                     <a href="work.html">Our Work</a>
                     <a href="contact.html">Contact Us</a>
-                    <a href="customer.html">Customer</a>
+                    <a href="login.html">Customer</a>
                 </div>
             </div>
             <div class="menuSmall_div" onclick="menuOverlay_open()">
@@ -107,7 +107,26 @@
 
 </body>
 
+<script>
+    init();
+    function init() {
+        if (window.location.href.includes("?")) {
+            var checkurl = window.location.href.split("?")[1].split("#")[0];
+            if (checkurl == "success=1") {
+                document.getElementsByClassName("contactLandingDivLeft")[0].style.marginTop = "40px";
+                document.getElementsByClassName("contactLandingDivRight")[0].style.marginTop = "40px";
+                document.getElementsByClassName("contactLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("contactLandingSuccessBanner")[0].innerHTML = "Success! Contact Form Submitted.";
+                document.getElementsByClassName("contactLandingSuccessBanner")[0].style.color = "#000000";
+            } else if (checkurl == "success=0") {
+                document.getElementsByClassName("contactLandingDivLeft")[0].style.marginTop = "40px";
+                document.getElementsByClassName("contactLandingDivRight")[0].style.marginTop = "40px";
+                document.getElementsByClassName("contactLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("contactLandingSuccessBanner")[0].style.backgroundColor = "#bb000080";
+                document.getElementsByClassName("contactLandingSuccessBanner")[0].innerHTML = "Error! Please Try Again.";
+            }
+        }
+    }
+</script>
 <script src="../javascripts/navbar.js"></script>
-<script src="../javascripts/contact.js"></script>
-
 </html>

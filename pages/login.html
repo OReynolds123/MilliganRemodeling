@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="Milligan Remodeling" />
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="../stylesheets/login.css">
+</head>
+
+<body>
+    <!-- Background -->
+    <a class="anchor" id="home"></a>
+    <div class="homeBackground"></div>
+    
+    <!-- Navigation Bar -->
+    <header class="nav">
+        <div class="menuOverlay">
+            <a href="javascript:void(0)" class="menuOverlay_closebtn" onclick="menuOverlay_close()">&#10006;</a>
+            <div class="menuOverlay_optionDiv">
+                <a href="../index.html" onclick="menuOverlay_close()">Home</a>
+                <a href="info.html" onclick="menuOverlay_close()">What We Do</a>
+                <a href="about.html" onclick="menuOverlay_close()">About Us</a>
+                <a href="work.html" onclick="menuOverlay_close()">Our Work</a>
+                <a href="contact.html" onclick="menuOverlay_close()">Contact Us</a>
+                <a href="login.html" onclick="menuOverlay_close()">Customer</a>
+            </div>
+        </div>
+        <div class="navbar">
+            <a href="../index.html" class="logo_div">
+                <img class="logo" src="../images/logo_red.png" />
+            </a>
+            <div class="menuLarge_div">
+                <div class="menuLarge_optionDiv">
+                    <a href="../index.html#home">Home</a>
+                    <a href="info.html">What We Do</a>
+                    <a href="about.html">About Us</a>
+                    <a href="work.html">Our Work</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="login.html">Customer</a>
+                </div>
+            </div>
+            <div class="menuSmall_div" onclick="menuOverlay_open()">
+                <div class="menu_bar"></div>
+                <div class="menu_bar"></div>
+                <div class="menu_bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Landing -->
+    <div class="homeLanding" style="height:40vh;">
+        <div class="homeLandingDiv">
+            <div class="landingInfoDiv">
+                <div class="landingLogoDiv"><img class="landingLogo" src="../images/logo_white.png"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Landing -->
+    <div class="pageLanding">
+        <div class="pageLandingDiv">
+
+            <div style="position:relative;">
+                <div class="loginLandingSuccessBanner"></div>
+            </div>
+
+            <div class="pageLandingTitleDiv">
+                <span class="pageLandingTitle">Customer</span>
+            </div>
+    
+            <!-- Login Form -->
+            <div class="loginFormDiv">
+                <form class="loginForm" action="../javascripts/loginHelper.php" method="POST">
+                    <div class="loginFormInputDiv" data-validate="Username is required">
+                        <span class="loginFormInputTitle">Username</span>
+                        <input class="loginFormInput" type="text" name="username" placeholder="Type your username">
+                        <span class="loginFormInputIco">
+                            <svg viewBox="0 0 448 512">
+                                <path
+                                    d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="loginFormInputDiv" data-validate="Password is required">
+                        <span class="loginFormInputTitle">Password</span>
+                        <input class="loginFormInput" type="password" name="password" placeholder="Type your password">
+                        <span class="loginFormInputIco">
+                            <svg viewBox="0 0 448 512">
+                                <path
+                                    d="M224 420c-11 0-20-9-20-20v-64c0-11 9-20 20-20s20 9 20 20v64c0 11-9 20-20 20zm224-148v192c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272c0-26.5 21.5-48 48-48h16v-64C64 71.6 136-.3 224.5 0 312.9.3 384 73.1 384 161.5V224h16c26.5 0 48 21.5 48 48zM96 224h256v-64c0-70.6-57.4-128-128-128S96 89.4 96 160v64zm320 240V272c0-8.8-7.2-16-16-16H48c-8.8 0-16 7.2-16 16v192c0 8.8 7.2 16 16 16h352c8.8 0 16-7.2 16-16z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="loginFormBtnDiv">
+                        <div class="btnDiv">
+                            <div class="btnDivWrap">
+                                <div class="btnBkg"></div>
+                                <input class="btn" onmouseover="moveBtnBkgRight(this);" onmouseleave="moveBtnBkgLeft(this);" type="submit">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+<script>
+    init();
+    function init() {
+        if (window.location.href.includes("?")) {
+            var checkurl = window.location.href.split("?")[1];
+            if (checkurl == "success=1") {
+                document.getElementsByClassName("pageLandingTitleDiv")[0].style.paddingTop = "40px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].innerHTML = "Success!";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.color = "#000000";
+            } else if (checkurl == "success=0") {
+                document.getElementsByClassName("pageLandingTitleDiv")[0].style.paddingTop = "40px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.backgroundColor = "#bb000080";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].innerHTML = "Error! Invalid Username or Password.";
+            }
+        }
+    }
+</script>
+<script src="../javascripts/navbar.js"></script>
+</html>
