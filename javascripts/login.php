@@ -21,7 +21,7 @@
                     if (mysqli_num_rows($rslt1) > 0) {
                         $_SESSION['username'] = $usr;
                         $_SESSION['password'] = $pas;
-                        header("Location: ../pages/customer.php");
+                        header("Location: ../pages/employees.php");
                     } else {
                         header("Location: ../pages/login.html?success=0");
                     }
