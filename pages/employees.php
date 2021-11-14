@@ -3,8 +3,8 @@
     if (empty($_SESSION["username"])) {
         header("Location: ../pages/login.html");
     }
-    if ($_SESSION['employee'] == TRUE) {
-        header("Location: ../pages/employees.php");
+    if ($_SESSION['employee'] != TRUE) {
+        header("Location: ../pages/customer.php");
     }
 ?>
 
@@ -17,7 +17,7 @@
     <meta name="description" content="Milligan Remodeling" />
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="../stylesheets/stylesheet.css">
-    <link rel="stylesheet" href="../stylesheets/customer.css">
+    <link rel="stylesheet" href="../stylesheets/employees.css">
 </head>
 
 <body>
@@ -73,7 +73,7 @@
     <div class="pageLanding">
         <div class="pageLandingDiv">
             <div class="pageLandingTitleDiv">
-                <span class="pageLandingTitle">Customer</span>
+                <span class="pageLandingTitle">Employees</span>
             </div>
             
             <!-- ADD CONTENT HERE -->

@@ -14,6 +14,7 @@
             if (mysqli_num_rows($rslt) > 0) {
                 $_SESSION['username'] = $usr;
                 $_SESSION['password'] = $pas;
+                $_SESSION['employee'] = FALSE;
                 header("Location: ../pages/customer.php");
             } else {
                 $sql1 = "SELECT `username`,`password` FROM `employees` WHERE `username`='" . $usr . "' AND `password`='" . $pas . "'";
@@ -21,7 +22,8 @@
                     if (mysqli_num_rows($rslt1) > 0) {
                         $_SESSION['username'] = $usr;
                         $_SESSION['password'] = $pas;
-                        header("Location: ../pages/employees.php");
+                        $_SESSION['employee'] = TRUE;
+                        header("Location: ../pages/customer.php");
                     } else {
                         header("Location: ../pages/login.html?success=0");
                     }
@@ -32,7 +34,6 @@
         } else {
             header("Location: ../pages/login.html?success=-1");
         }
-
         $conn->close();
     }
 ?>
