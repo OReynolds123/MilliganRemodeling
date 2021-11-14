@@ -1,5 +1,12 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if (empty($_SESSION["username"])) {
+        header("Location: ../pages/login.html");
+    }
+?>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Milligan Remodeling</title>
     <meta charset="utf-8" />
@@ -25,7 +32,7 @@
                 <a href="about.html" onclick="menuOverlay_close()">About Us</a>
                 <a href="work.html" onclick="menuOverlay_close()">Our Work</a>
                 <a href="contact.html" onclick="menuOverlay_close()">Contact Us</a>
-                <a href="login.html" onclick="menuOverlay_close()">Customer</a>
+                <a href="customer.php" onclick="menuOverlay_close()">Customer</a>
             </div>
         </div>
         <div class="navbar">
@@ -39,7 +46,7 @@
                     <a href="about.html">About Us</a>
                     <a href="work.html">Our Work</a>
                     <a href="contact.html">Contact Us</a>
-                    <a href="login.html">Customer</a>
+                    <a href="customer.php">Customer</a>
                 </div>
             </div>
             <div class="menuSmall_div" onclick="menuOverlay_open()">
@@ -67,26 +74,10 @@
             </div>
             
             <!-- ADD CONTENT HERE -->
+            <div>Click to <a href="../javascripts/logout.php">logout</a>.</div>
         </div>
     </div>
 </body>
 
-<script>
-    init()
-    function init() {
-            if (window.location.href.includes("?")) {
-                var checkurl = window.location.href.split("?")[1];
-                if (checkurl.includes("tk=")) {
-                    
-                } else {
-                    console.log("Error: No token supplied");
-                    window.location.href = "login.html";
-                }
-            } else {
-                console.log("Error: No token supplied");
-                window.location.href = "login.html";
-            }
-        }
-</script>
 <script src="../javascripts/navbar.js"></script>
 </html>

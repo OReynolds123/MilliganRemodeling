@@ -25,7 +25,7 @@
                 <a href="about.html" onclick="menuOverlay_close()">About Us</a>
                 <a href="work.html" onclick="menuOverlay_close()">Our Work</a>
                 <a href="contact.html" onclick="menuOverlay_close()">Contact Us</a>
-                <a href="login.html" onclick="menuOverlay_close()">Customer</a>
+                <a href="customer.php" onclick="menuOverlay_close()">Customer</a>
             </div>
         </div>
         <div class="navbar">
@@ -39,7 +39,7 @@
                     <a href="about.html">About Us</a>
                     <a href="work.html">Our Work</a>
                     <a href="contact.html">Contact Us</a>
-                    <a href="login.html">Customer</a>
+                    <a href="customer.php">Customer</a>
                 </div>
             </div>
             <div class="menuSmall_div" onclick="menuOverlay_open()">
@@ -68,12 +68,12 @@
             </div>
 
             <div class="pageLandingTitleDiv">
-                <span class="pageLandingTitle">Customer</span>
+                <span class="pageLandingTitle">Login</span>
             </div>
     
             <!-- Login Form -->
             <div class="loginFormDiv">
-                <form class="loginForm" action="../javascripts/loginHelper.php" method="POST">
+                <form class="loginForm" action="../javascripts/login.php" method="POST">
                     <div class="loginFormInputDiv" data-validate="Username is required">
                         <span class="loginFormInputTitle">Username</span>
                         <input class="loginFormInput" type="text" name="username" placeholder="Type your username">
@@ -117,16 +117,22 @@
     function init() {
         if (window.location.href.includes("?")) {
             var checkurl = window.location.href.split("?")[1];
-            if (checkurl == "success=1") {
-                document.getElementsByClassName("pageLandingTitleDiv")[0].style.paddingTop = "40px";
-                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.height = "50px";
-                document.getElementsByClassName("loginLandingSuccessBanner")[0].innerHTML = "Success!";
-                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.color = "#000000";
-            } else if (checkurl == "success=0") {
+            if (checkurl == "success=0") {
                 document.getElementsByClassName("pageLandingTitleDiv")[0].style.paddingTop = "40px";
                 document.getElementsByClassName("loginLandingSuccessBanner")[0].style.height = "50px";
                 document.getElementsByClassName("loginLandingSuccessBanner")[0].style.backgroundColor = "#bb000080";
                 document.getElementsByClassName("loginLandingSuccessBanner")[0].innerHTML = "Error! Invalid Username or Password.";
+            } else if (checkurl == "success=-1") {
+                document.getElementsByClassName("pageLandingTitleDiv")[0].style.paddingTop = "40px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.backgroundColor = "#bb000080";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].innerHTML = "Error! Please try again.";
+            } else if (checkurl == "success=1") {
+                document.getElementsByClassName("pageLandingTitleDiv")[0].style.paddingTop = "40px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.backgroundColor = "#00bb0080";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].style.color = "#000000";
+                document.getElementsByClassName("loginLandingSuccessBanner")[0].innerHTML = "Success! You have been logged out.";
             }
         }
     }
