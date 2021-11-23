@@ -8,6 +8,7 @@
     $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
     if (mysqli_connect_error()) {
         header("Location: ../pages/login.html?success=-1");
+        exit;
     } else {
         $sql = "SELECT `username`,`password` FROM `customer` WHERE `username`='" . $usr . "' AND `password`='" . $pas . "'";
         if ($rslt = $conn->query($sql)) {
@@ -16,6 +17,7 @@
                 $_SESSION['password'] = $pas;
                 $_SESSION['employee'] = FALSE;
                 header("Location: ../pages/customer.php");
+                exit;
             } else {
                 $sql1 = "SELECT `username`,`password` FROM `employees` WHERE `username`='" . $usr . "' AND `password`='" . $pas . "'";
                 if ($rslt1 = $conn->query($sql1)) {
@@ -24,15 +26,19 @@
                         $_SESSION['password'] = $pas;
                         $_SESSION['employee'] = TRUE;
                         header("Location: ../pages/customer.php");
+                        exit;
                     } else {
                         header("Location: ../pages/login.html?success=0");
+                        exit;
                     }
                 } else {
                     header("Location: ../pages/login.html?success=-1");
+                    exit;
                 }
             }
         } else {
             header("Location: ../pages/login.html?success=-1");
+            exit;
         }
         $conn->close();
     }

@@ -1,0 +1,55 @@
+.customerLandingDiv {
+    width: calc(100% - calc(var(--spacing)*2));
+    height: 100%;
+    padding: var(--spacing);
+    display: flex;
+}
+
+.customerLandingLeftDiv {
+    height: max-content;
+    flex: calc(100% - 150px);
+    padding: 20px;
+}
+.customerLandingLeft {
+
+}
+
+.customerLandingRightDiv {
+    height: auto;
+    flex: 200px;
+    border-left: 2px solid var(--p1);
+}
+.customerLandingRightBtn {
+    display: flex;
+    width: 100px;
+    height: 50px;
+    border-bottom: 1px solid var(--p1);
+    margin: auto;
+    justify-content: left;
+}
+.customerLandingRightBtn.active {
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.customerLandingRightBtn:hover {
+    cursor: pointer;
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.customerLandingRightBtn svg {
+    width: 20px;
+    height: 20px;
+    margin: auto 0;
+    fill: currentColor;
+}
+.customerLandingRightBtn div {
+    margin: auto 0;
+    padding-left: 10px;
+    width: min-content;
+    font-size: 22px;
+}
+
+.hide {
+    opacity: 0;
+    display: none;
+}

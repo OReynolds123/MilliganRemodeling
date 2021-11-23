@@ -2,9 +2,11 @@
     session_start();
     if (empty($_SESSION["username"])) {
         header("Location: ../pages/login.html");
+        exit;
     }
     if ($_SESSION['employee'] != TRUE) {
         header("Location: ../pages/customer.php");
+        exit;
     }
 ?>
 
