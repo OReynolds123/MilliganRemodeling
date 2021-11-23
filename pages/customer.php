@@ -15,26 +15,23 @@
         header("Location: ./error.html?success=-1");
         exit;
     } else {
-        $sql1 = "SELECT `orders` FROM `customer` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
-        if ($rslt1 = $conn->query($sql1)) {
-            $order = $rslt1->fetch_array()[0] ?? -1;
-            if ($order == -1) {
-                header("Location: ./error.html?success=-1");
-                exit;
-            } else {
-                $sql2 = "SELECT `name`,`progress`,`description`,`cost`,`isPaid` FROM `orders` WHERE `id`='" . $order . "'";
-                $rslt2 = $conn->query($sql2);
-                $row = mysqli_fetch_array($rslt2);
-                $_SESSION["name"] = $row['name'];
-                $_SESSION["prog"] = $row['progress'];
-                $_SESSION["desc"] = $row['description'];
-                $_SESSION["cost"] = $row['cost'];
-                $_SESSION["paid"] = $row['isPaid'];
-            }
-        } else {
-            header("Location: ./error.html?success=-1");
-            exit;
-        }
+        $sql1 = "SELECT `name`,`email`,`phone`,`card`,`orders` FROM `customer` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
+        $rslt1 = $conn->query($sql1);
+        $row1 = mysqli_fetch_array($rslt1);
+        $_SESSION["name"] = $row1['name'];
+        $_SESSION["email"] = $row1['email'];
+        $_SESSION["phone"] = $row1['phone'];
+        $_SESSION["card"] = $row1['card'];
+        $_SESSION["orders"] = $row1['orders'];
+
+        $sql2 = "SELECT `name`,`progress`,`description`,`cost`,`isPaid` FROM `orders` WHERE `id`='" . $_SESSION["orders"] . "'";
+        $rslt2 = $conn->query($sql2);
+        $row2 = mysqli_fetch_array($rslt2);
+        $_SESSION["orderName"] = $row2['name'];
+        $_SESSION["prog"] = $row2['progress'];
+        $_SESSION["desc"] = $row2['description'];
+        $_SESSION["cost"] = $row2['cost'];
+        $_SESSION["paid"] = $row2['isPaid'];
     }
 ?>
 
@@ -109,18 +106,22 @@
             <div class="customerLandingDiv">
                 <div class="customerLandingLeftDiv">
                     <div class="customerLandingLeft">
-                        <div style="font-size:25px">Project Title: <?php echo $_SESSION["name"]; ?></div>
-                        <div style="font-size:20px">Description: <?php echo $_SESSION["desc"]; ?></div>
-                        <div style="font-size:22px">Progress: <?php echo $_SESSION["prog"]; ?>%</div>
-                        <div style="font-size:22px">Cost: $<?php echo $_SESSION["cost"]; ?></div>
+                        <div style="font-size:25px">Project:</div>
+                        <div style="font-size:22px"> - Name: <span class="customerLandingLeftInfo"><?php echo $_SESSION["orderName"]; ?></span></div>
+                        <div style="font-size:22px"> - Status: <span class="customerLandingLeftInfo"><?php echo $_SESSION["desc"]; ?></span></div>
+                        <div style="font-size:22px"> - Progress: <span class="customerLandingLeftInfo"><?php echo $_SESSION["prog"]; ?>%</span></div>
+                        <div style="font-size:22px"> - Cost: <span class="customerLandingLeftInfo">$<?php echo $_SESSION["cost"]; ?></span></div>
+                        <div style="font-size:22px"> - Paid: <span class="customerLandingLeftInfo"><?php echo $_SESSION["paid"]; ?></span></div>
                     </div>
 
                     <div class="customerLandingLeft hide">
-                        <div class="">Username</div>
-                        <div class="">Password</div>
-                        <div class="">Email</div>
-                        <div class="">Phone</div>
-                        <div class="">Card</div>
+                        <div style="font-size:25px">Profile:</div>
+                        <div style="font-size:22px"> - Full Name: <span class="customerLandingLeftInfo"><?php echo $_SESSION["name"]; ?></span></div>
+                        <div style="font-size:22px"> - Username: <span class="customerLandingLeftInfo"><?php echo $_SESSION["username"]; ?></span></div>
+                        <div style="font-size:22px"> - Password: <span class="customerLandingLeftInfo"><?php echo $_SESSION["password"]; ?></span></div>
+                        <div style="font-size:22px"> - Email: <span class="customerLandingLeftInfo"><?php echo $_SESSION["email"]; ?></span></div>
+                        <div style="font-size:22px"> - Phone: <span class="customerLandingLeftInfo"><?php echo $_SESSION["phone"]; ?></span></div>
+                        <div style="font-size:22px"> - Card: <span class="customerLandingLeftInfo"><?php echo $_SESSION["card"]; ?></span></div>
                     </div>
                 </div>
                 <div class="customerLandingRightDiv">

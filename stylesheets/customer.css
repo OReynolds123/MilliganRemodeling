@@ -1,7 +1,11 @@
+.pageLanding {
+    max-width: 700px;
+}
+
 .customerLandingDiv {
     width: calc(100% - calc(var(--spacing)*2));
     height: 100%;
-    padding: var(--spacing);
+    padding: 0 var(--spacing) var(--spacing) var(--spacing); 
     display: flex;
 }
 
@@ -12,6 +16,9 @@
 }
 .customerLandingLeft {
 
+}
+.customerLandingLeftInfo {
+    font-weight: 370;
 }
 
 .customerLandingRightDiv {
