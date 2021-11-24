@@ -9,16 +9,72 @@
     display: flex;
 }
 
+.customerLandingSuccessBanner {
+    width: 100%;
+    height: 0px;
+    background-color: #00bb0080;
+    color: var(--white1);
+    line-height: 50px;
+    text-align: center;
+    text-anchor: middle;
+    border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -webkit-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -moz-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -ms-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+}
+
 .customerLandingLeftDiv {
     height: max-content;
     flex: calc(100% - 150px);
     padding: 20px;
 }
-.customerLandingLeft {
-
-}
 .customerLandingLeftInfo {
     font-weight: 370;
+}
+.customerLandingLeftEditBtnDiv {
+    position: relative;
+}
+.customerLandingLeftEditBtn {
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.customerLandingLeftEditBtn:hover {
+    cursor: pointer;
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.customerLandingLeftEditBtn div {
+    margin: auto 0;
+    width: min-content;
+    font-size: 22px;
+    padding-right: 5px;
+}
+.customerLandingLeftEditBtn svg {
+    width: 20px;
+    height: 20px;
+    margin: auto 0;
+    fill: currentColor;
+}
+.customerLandingFormInput {
+    border: none;
+    outline: none;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    border-bottom: 1px solid var(--p1);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    font-size: 20px;
+    font-family: system-ui;
+}
+.customerLandingFormInput:focus-within {
+    border-bottom-color: var(--p2);
 }
 
 .customerLandingRightDiv {

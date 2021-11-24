@@ -15,9 +15,10 @@
         header("Location: ./error.html?success=-1");
         exit;
     } else {
-        $sql1 = "SELECT `name`,`email`,`phone`,`card`,`orders` FROM `customer` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
+        $sql1 = "SELECT `id`,`name`,`email`,`phone`,`card`,`orders` FROM `customer` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
         $rslt1 = $conn->query($sql1);
         $row1 = mysqli_fetch_array($rslt1);
+        $_SESSION["id"] = $row1['id'];
         $_SESSION["name"] = $row1['name'];
         $_SESSION["email"] = $row1['email'];
         $_SESSION["phone"] = $row1['phone'];
@@ -99,6 +100,10 @@
     <!-- Info Landing -->
     <div class="pageLanding">
         <div class="pageLandingDiv">
+            <div style="position:relative;">
+                <div class="customerLandingSuccessBanner"></div>
+            </div>
+
             <div class="pageLandingTitleDiv">
                 <span class="pageLandingTitle">Customer</span>
             </div>
@@ -115,21 +120,46 @@
                     </div>
 
                     <div class="customerLandingLeft hide">
-                        <div style="font-size:25px">Profile:</div>
-                        <div style="font-size:22px"> - Full Name: <span class="customerLandingLeftInfo"><?php echo $_SESSION["name"]; ?></span></div>
-                        <div style="font-size:22px"> - Username: <span class="customerLandingLeftInfo"><?php echo $_SESSION["username"]; ?></span></div>
-                        <div style="font-size:22px"> - Password: <span class="customerLandingLeftInfo"><?php echo $_SESSION["password"]; ?></span></div>
-                        <div style="font-size:22px"> - Email: <span class="customerLandingLeftInfo"><?php echo $_SESSION["email"]; ?></span></div>
-                        <div style="font-size:22px"> - Phone: <span class="customerLandingLeftInfo"><?php echo $_SESSION["phone"]; ?></span></div>
-                        <div style="font-size:22px"> - Card: <span class="customerLandingLeftInfo"><?php echo $_SESSION["card"]; ?></span></div>
+                        <div class="customerLandingLeftEditBtnDiv">
+                            <a onmousedown="customerEditBtnToggle();" class="customerLandingLeftEditBtn">
+                                <div>Edit</div>
+                                <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
+                            </a>
+                        </div>
+                        <div class="customerLandingLeftEdit">
+                            <div style="font-size:25px">Profile:</div>
+                            <div style="font-size:22px"> - Full Name: <span class="customerLandingLeftInfo"><?php echo $_SESSION["name"]; ?></span></div>
+                            <div style="font-size:22px"> - Username: <span class="customerLandingLeftInfo"><?php echo $_SESSION["username"]; ?></span></div>
+                            <div style="font-size:22px"> - Password: <span class="customerLandingLeftInfo"><?php echo str_repeat('*', strlen($_SESSION["password"])); ?></span></div>
+                            <div style="font-size:22px"> - Email: <span class="customerLandingLeftInfo"><?php echo $_SESSION["email"]; ?></span></div>
+                            <div style="font-size:22px"> - Phone: <span class="customerLandingLeftInfo"><?php echo $_SESSION["phone"]; ?></span></div>
+                            <div style="font-size:22px"> - Card: <span class="customerLandingLeftInfo"><?php echo str_repeat('*', strlen($_SESSION["card"])-4) . substr($_SESSION["card"], -4); ?></span></div>
+                        </div>
+                        <div class="customerLandingLeftEdit hide">
+                            <form action="../javascripts/customerForm.php" method="post">
+                                <div style="font-size:25px">Profile:</div>
+                                <div style="font-size:22px"> - Full Name: <input class="customerLandingFormInput" type="text" name="editName" placeholder="<?php echo $_SESSION["name"]; ?>"></div>
+                                <div style="font-size:22px"> - Username: <input class="customerLandingFormInput" type="text" name="editUser" placeholder="<?php echo $_SESSION["username"]; ?>"></div>
+                                <div style="font-size:22px"> - Password: <input class="customerLandingFormInput" type="password" name="editPass" placeholder="<?php echo $_SESSION["password"];?>"></div>
+                                <div style="font-size:22px"> - Email: <input class="customerLandingFormInput" type="email" name="editEmail" placeholder="<?php echo $_SESSION["email"]; ?>"></div>
+                                <div style="font-size:22px"> - Phone: <input class="customerLandingFormInput" type="text" name="editPhone" placeholder="<?php echo $_SESSION["phone"]; ?>"></div>
+                                <div style="font-size:22px"> - Card: <input class="customerLandingFormInput" type="text" name="editCard" placeholder="<?php echo $_SESSION["card"]; ?>"></div>
+                                <div class="btnDiv" style="margin: 10px auto 0 auto; width:125px; height:30px;">
+                                    <div class="btnDivWrap">
+                                        <div class="btnBkg"></div>
+                                        <input class="btn" onmouseover="moveBtnBkgRight(this);" onmouseleave="moveBtnBkgLeft(this);" type="submit">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="customerLandingRightDiv">
-                    <a onmousedown="customerBtnPress(0)" class="customerLandingRightBtn active">
+                    <a onmousedown="customerBtnPress(0); customerEditBtnHide();" class="customerLandingRightBtn active">
                         <svg viewBox="0 0 576 512"><path d="M573.65 200.92l-11.34-11.31c-3.13-3.12-8.21-3.12-11.34 0l-17.01 16.97-52.98-52.86c5.64-21.31.36-44.9-16.39-61.61l-45.36-45.25C387.92 15.62 346.88 0 305.84 0c-41.04 0-82.09 15.62-113.4 46.86l68.66 68.5c-4.42 16.71-1.88 34.7 7.4 49.8L21.47 395.26c-27.95 26.04-28.71 70.01-1.67 96.99C33.02 505.44 50.32 512 67.59 512c18.05 0 36.09-7.17 49.42-21.42l233.13-249.14c12.84 5.06 26.84 6.3 40.12 2.8l52.98 52.86-17.01 16.97a7.985 7.985 0 0 0 0 11.31l11.34 11.31c3.13 3.12 8.21 3.12 11.34 0l124.74-124.45a7.997 7.997 0 0 0 0-11.32zM93.57 468.74C86.78 476 77.55 480 67.59 480c-9.48 0-18.4-3.69-25.11-10.38-6.87-6.86-10.57-15.97-10.4-25.67.17-9.7 4.17-18.68 11.28-25.3l246.37-229.47 33.85 33.77L93.57 468.74zm372.35-194.28l-52.98-52.85-13.04-13.01-17.83 4.7c-11.3 2.98-22.84-.03-30.87-8.04l-51.03-50.91c-8.03-8.01-11.04-19.53-8.06-30.8l4.71-17.79-13.04-13.01-43.14-43.05c19.54-11.54 41.9-17.7 65.2-17.7 34.27 0 66.48 13.32 90.72 37.49l45.36 45.26c8.03 8.01 11.04 19.53 8.06 30.8l-4.71 17.79 13.04 13.01 52.98 52.86-45.37 45.25z"></path></svg>
                         <div>Project</div>
                     </a>
-                    <a onmousedown="customerBtnPress(1)" class="customerLandingRightBtn">
+                    <a onmousedown="customerBtnPress(1); customerEditBtnHide();" class="customerLandingRightBtn">
                         <svg viewBox="0 0 448 512"><path d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg>
                         <div>Profile</div>
                     </a>
@@ -146,6 +176,23 @@
 
 <script src="../javascripts/navbar.js"></script>
 <script>
+    init();
+    function init() {
+        if (window.location.href.includes("?")) {
+            var checkurl = window.location.href.split("?")[1].split("#")[0];
+            if (checkurl == "success=1") {
+                document.getElementsByClassName("pageLandingTitle")[0].style.paddingTop = "0px";
+                document.getElementsByClassName("customerLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("customerLandingSuccessBanner")[0].innerHTML = "Success! User Profile Updated.";
+                document.getElementsByClassName("customerLandingSuccessBanner")[0].style.color = "#000000";
+            } else if (checkurl == "success=0") {
+                document.getElementsByClassName("pageLandingTitle")[0].style.paddingTop = "0px";
+                document.getElementsByClassName("customerLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("customerLandingSuccessBanner")[0].style.backgroundColor = "#bb000080";
+                document.getElementsByClassName("customerLandingSuccessBanner")[0].innerHTML = "Error! Please Try Again.";
+            }
+        }
+    }
     function customerBtnPress(num) {
         temps1 = document.getElementsByClassName("customerLandingRightBtn");
         temps2 = document.getElementsByClassName("customerLandingLeft");
@@ -157,6 +204,25 @@
         }
         temps1[num].classList.add("active");
         temps2[num].classList.remove("hide");
+    }
+    function customerEditBtnToggle() {
+        if (document.getElementsByClassName("customerLandingLeftEdit")[0].classList.contains("hide")) {
+            customerEditBtnHide();
+        } else {
+            customerEditBtnShow();
+        }
+    }
+    function customerEditBtnShow() {
+        document.getElementsByClassName("customerLandingLeftEdit")[0].classList.add("hide");
+        document.getElementsByClassName("customerLandingLeftEdit")[1].classList.remove("hide");
+        document.getElementsByClassName("customerLandingLeftEditBtn")[0].lastElementChild.outerHTML = '<svg viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zM256 472c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm-12.5-92.5l-115.1-115c-4.7-4.7-4.7-12.3 0-17l115.1-115c4.7-4.7 12.3-4.7 17 0l6.9 6.9c4.7 4.7 4.7 12.5-.2 17.1L181.7 239H372c6.6 0 12 5.4 12 12v10c0 6.6-5.4 12-12 12H181.7l85.6 82.5c4.8 4.7 4.9 12.4.2 17.1l-6.9 6.9c-4.8 4.7-12.4 4.7-17.1 0z"></path></svg>';
+        document.getElementsByClassName("customerLandingLeftEditBtn")[0].firstElementChild.innerHTML = "Back";
+    }
+    function customerEditBtnHide() {
+        document.getElementsByClassName("customerLandingLeftEdit")[0].classList.remove("hide");
+        document.getElementsByClassName("customerLandingLeftEdit")[1].classList.add("hide");
+        document.getElementsByClassName("customerLandingLeftEditBtn")[0].lastElementChild.outerHTML = '<svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>';
+        document.getElementsByClassName("customerLandingLeftEditBtn")[0].firstElementChild.innerHTML = "Edit";
     }
 </script>
 
