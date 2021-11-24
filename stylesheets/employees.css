@@ -1,0 +1,156 @@
+.pageLanding {
+    max-width: 700px;
+}
+
+.employeesLandingDiv {
+    width: calc(100% - calc(var(--spacing)*2));
+    height: 100%;
+    padding: 0 var(--spacing) var(--spacing) var(--spacing); 
+    display: flex;
+}
+
+.employeesLandingSuccessBanner {
+    width: 100%;
+    height: 0px;
+    background-color: #00bb0080;
+    color: var(--white1);
+    line-height: 50px;
+    text-align: center;
+    text-anchor: middle;
+    border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -webkit-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -moz-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -ms-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+    -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
+}
+
+.employeesLandingLeftDiv {
+    height: max-content;
+    flex: calc(100% - 150px);
+    padding: 20px;
+}
+.employeesLandingLeftInfo {
+    font-weight: 370;
+}
+.employeesLandingLeftEditBtnDiv {
+    position: relative;
+}
+.employeesLandingLeftEditBtn {
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.employeesLandingLeftEditBtn:hover {
+    cursor: pointer;
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.employeesLandingLeftEditBtn div {
+    margin: auto 0;
+    width: min-content;
+    font-size: 22px;
+    padding-right: 5px;
+}
+.employeesLandingLeftEditBtn svg {
+    width: 20px;
+    height: 20px;
+    margin: auto 0;
+    fill: currentColor;
+}
+.employeesLandingFormInput {
+    border: none;
+    outline: none;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    border-bottom: 1px solid var(--p1);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    font-size: 20px;
+    font-family: system-ui;
+}
+.employeesLandingFormInput:focus-within {
+    border-bottom-color: var(--p2);
+}
+
+.employeesLandingRightDiv {
+    height: auto;
+    flex: 200px;
+    border-left: 2px solid var(--p1);
+}
+.employeesLandingRightBtn {
+    display: flex;
+    width: 100px;
+    height: 50px;
+    border-bottom: 1px solid var(--p1);
+    margin: auto;
+    justify-content: left;
+}
+.employeesLandingRightBtn.active {
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.employeesLandingRightBtn:hover {
+    cursor: pointer;
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.employeesLandingRightBtn svg {
+    width: 20px;
+    height: 20px;
+    margin: auto 0;
+    fill: currentColor;
+}
+.employeesLandingRightBtn div {
+    margin: auto 0;
+    padding-left: 10px;
+    width: min-content;
+    font-size: 22px;
+}
+
+.hide {
+    opacity: 0;
+    display: none;
+}
+
+.employeesLandingCustomerDiv {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.employeesLandingCustomerDiv p {
+    display: block;
+}
+.employeesLandingCustomerDiv span {
+    width: fit-content;
+    font-size: 22px;
+    align-self: left;
+    margin-right: 10px;
+}
+.employeesLandingCustomerDiv div {
+    width: fit-content;
+    align-self: right;
+}
+.employeesLandingCustomerDiv div a {
+    margin: auto 0;
+    vertical-align: middle;
+    padding: 0 2px;
+}
+.employeesLandingCustomerDiv div a svg {
+    width: 25px;
+    height: 25px;
+    margin: auto;
+    vertical-align: middle;
+    fill: currentColor;
+}
+.employeesLandingCustomerDiv div a svg:hover {
+    cursor: pointer;
+    color: var(--p2);
+    border-color: var(--p2);
+}
