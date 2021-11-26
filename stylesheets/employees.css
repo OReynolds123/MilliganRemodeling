@@ -154,3 +154,26 @@
     color: var(--p2);
     border-color: var(--p2);
 }
+
+.employeesLandingContactTxt, .employeesLandingContactName, .employeesLandingContactEmail, .employeesLandingContactMessage, .employeesLandingContactNum {
+    font-size: 20px;
+}
+.employeesLandingContactNumDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: left;
+    align-items: center;
+}
+.employeesLandingContactNumDiv a {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    fill: currentColor;
+    margin: 5px 10px;
+}
+.employeesLandingContactNumDiv a:hover {
+    cursor: pointer;
+    color: var(--p2);
+    border-color: var(--p2);
+}

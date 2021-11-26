@@ -97,7 +97,7 @@
             
             <div class="employeesLandingDiv">
                 <div class="employeesLandingLeftDiv">
-                    <div class="employeesLandingLeft hide">
+                    <div class="employeesLandingLeft">
                         <div class="employeesLandingLeftEdit">
                             <div style="font-size:25px">Customers:</div>
                             <?php
@@ -127,37 +127,40 @@
                                 <span> - <a href="">Add Customer</a></span>
                             </div>
                         </div>
-
-
                     </div>
 
-                    <div class="employeesLandingLeft">
-                        <div class="employeesLandingLeftEdit">
-                            <div style="font-size:25px">Contact:</div>
-                            <?php
-                                $config = parse_ini_file("../javascripts/.ht.ini");
-                                $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
-                                if (mysqli_connect_error()) {
-                                    header("Location: ./error.html?success=-1");
-                                    exit;
-                                } else {
-                                    $sql = "SELECT `name`,`email`,`message` FROM `contact`";
-                                    $rslt = $conn->query($sql);
-                                    for ($i = 0; $i < mysqli_num_rows($rslt); $i++) {
-                                        $row = mysqli_fetch_array($rslt);
-                                        echo '<div class="employeesLandingCustomerDiv">
-                                            <p> - ' . ($i+1) . ') ' . $row['name'] . '</p>
-                                            <p>   - Email: ' . $row['email'] . '</p>
-                                            <p>   - Message: ' . $row['message'] . '</p>
-                                            <div>
-                                                <a href=""><svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg></a>
-                                            </div>
-                                        </div>';
-                                    }
+                    <div class="employeesLandingLeft hide">
+                        <?php
+                            $contactMessageCur = 0;
+                            $contactMessageTot = 0;
+                            $config = parse_ini_file("../javascripts/.ht.ini");
+                            $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
+                            if (mysqli_connect_error()) {
+                                header("Location: ./error.html?success=-1");
+                                exit;
+                            } else {
+                                $contactSql = "SELECT `name`,`email`,`message` FROM `contact`";
+                                $contactRslt = $conn->query($contactSql);
+                                $contactMessageTot = mysqli_num_rows($contactRslt);
+                                if ($contactMessageTot > 0) {
+                                    $contactMessageCur = 1;
                                 }
-                            ?>
-                        </div>
+                                for ($i = 0; $i < $contactMessageTot; $i++) {
+                                    $contactMessageRow[$i] = mysqli_fetch_array($contactRslt);
+                                }
+                            }
+                        ?>
+                        <div style="font-size:25px">Contact:</div>
 
+                        <div class="employeesLandingContactTxt"> - Name: <span class="employeesLandingContactName"><?php echo $contactMessageRow[$contactMessageCur - 1]['name']?></span></div>
+                        <div class="employeesLandingContactTxt"> - Email: <span class="employeesLandingContactEmail"><?php echo $contactMessageRow[$contactMessageCur - 1]['email']?></span></div>
+                        <div class="employeesLandingContactTxt"> - Message: <span class="employeesLandingContactMessage"><?php echo $contactMessageRow[$contactMessageCur - 1]['message']?></span></div>
+
+                        <div class="employeesLandingContactNumDiv">
+                            <a onmousedown="employeesContactBtn();"><svg style="vertical-align: middle;" viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg></a>
+                            <div class="employeesLandingContactTxt">Message <span class="employeesLandingContactNum"><?php echo $contactMessageCur . ' of ' . $contactMessageTot ?></span></div>
+                            <a onmousedown="employeesContactBtn();"><svg style="vertical-align: middle;" viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg></a>
+                        </div>
                     </div>
 
                     <div class="employeesLandingLeft hide">
@@ -232,6 +235,14 @@
             }
         }
     }
+
+    function employeesContactBtn() {
+        console.log(<?php echo $contactMessageCur; ?>);
+        document.getElementsByClassName("employeesLandingContactName")[0].innerHTML = "<?php echo $contactMessageRow[$contactMessageCur - 1]['name']?>";
+        document.getElementsByClassName("employeesLandingContactEmail")[0].innerHTML = "<?php echo $contactMessageRow[$contactMessageCur - 1]['email']?>";
+        document.getElementsByClassName("employeesLandingContactMessage")[0].innerHTML = "<?php echo $contactMessageRow[$contactMessageCur - 1]['message']?>";
+    }
+
     function employeesBtnPress(num) {
         temps1 = document.getElementsByClassName("employeesLandingRightBtn");
         temps2 = document.getElementsByClassName("employeesLandingLeft");
