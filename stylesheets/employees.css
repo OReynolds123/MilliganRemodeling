@@ -155,25 +155,61 @@
     border-color: var(--p2);
 }
 
-.employeesLandingContactTxt, .employeesLandingContactName, .employeesLandingContactEmail, .employeesLandingContactMessage, .employeesLandingContactNum {
-    font-size: 20px;
+.employeesLandingContactParent {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    margin: 0;
 }
-.employeesLandingContactNumDiv {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: left;
-    align-items: center;
+.employeesLandingContactParent .employeesLandingContactTitle {
+    border-radius: 10px;
+    line-height: 30px;
+    height: 30px;
+    display: inline;
+    float: left;
+    padding: 10px 15px;
+    width: calc(100% - 30px);
+    font-weight: 450;
+    border: 1px solid black;
 }
-.employeesLandingContactNumDiv a {
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
-    fill: currentColor;
-    margin: 5px 10px;
-}
-.employeesLandingContactNumDiv a:hover {
+.employeesLandingContactParent .employeesLandingContactTitle:hover {
     cursor: pointer;
-    color: var(--p2);
-    border-color: var(--p2);
+    background-color: #efefef;
+}
+.employeesLandingContactParent .employeesLandingContactTitle svg {
+    display: inline;
+    width: 30px;
+    float: right;
+}
+.employeesLandingContactParent .employeesLandingContactTitle .up {
+    display: none;
+    overflow: hidden;
+}
+.employeesLandingContactParent .employeesLandingContactChild {
+    display: none;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.employeesLandingContactParent.selected {
+    background-color: #efefef;
+    border: 1px solid black;
+    display: inline-block;
+}
+.employeesLandingContactParent.selected .employeesLandingContactTitle {
+    border: none;
+}
+.employeesLandingContactParent.selected .employeesLandingContactTitle .up {
+    display: inline;
+    overflow: visible;
+}
+.employeesLandingContactParent.selected .employeesLandingContactTitle .down {
+    display: none;
+    overflow: hidden;
+}
+.employeesLandingContactParent.selected .employeesLandingContactChild {
+    display: block;
+    overflow: visible;
+    padding: 10px 15px;
+    width: calc(100% - 30px);
 }
