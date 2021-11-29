@@ -18,6 +18,9 @@ a {
     text-decoration: none;
     color: inherit;
 }
+li {
+    text-align:right;
+}
 a.anchor {
     display: block;
     position: relative;
