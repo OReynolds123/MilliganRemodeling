@@ -97,35 +97,43 @@
             
             <div class="employeesLandingDiv">
                 <div class="employeesLandingLeftDiv">
+                    
                     <div class="employeesLandingLeft">
-                        <div class="employeesLandingLeftEdit">
-                            <div style="font-size:25px">Customers:</div>
-                            <?php
-                                $config = parse_ini_file("../javascripts/.ht.ini");
-                                $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
-                                if (mysqli_connect_error()) {
-                                    header("Location: ./error.html?success=-1");
-                                    exit;
-                                } else {
-                                    $sql1 = "SELECT `id`,`name` FROM `customer`";
-                                    $rslt1 = $conn->query($sql1);
-                                    for ($i = 0; $i < mysqli_num_rows($rslt1); $i++) {
-                                        $row1 = mysqli_fetch_array($rslt1);
-                                        $currId = $row1['id'];
-                                        $currName = $row1['name'];
-                                        echo '<div class="employeesLandingCustomerDiv">
-                                            <span> - ' . $currId . ') ' . $currName . '</span>
-                                            <div>
-                                                <a onmousedown=""><svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg></a>
-                                                <a href=""><svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg></a>
+                        <div style="font-size:25px">Customers:</div>
+                        <?php
+                            $config = parse_ini_file("../javascripts/.ht.ini");
+                            $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
+                            if (mysqli_connect_error()) {
+                                header("Location: ./error.html?success=-1");
+                                exit;
+                            } else {
+                                $customerSql = "SELECT `username`,`name`,`email`,`phone`,`orders` FROM `customer`";
+                                $customerRslt = $conn->query($customerSql);
+                                for ($i = 0; $i < mysqli_num_rows($customerRslt); $i++) {
+                                    $customerRow = mysqli_fetch_array($customerRslt);
+                                    echo '<div class="employeesLandingCustomerParent">';
+                                    echo '<div onmousedown="employeesLandingCustomerPress(' . $i. ');" class="employeesLandingCustomerTitle">' . $customerRow['name'] . '
+                                            <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
+                                            <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
+                                        </div>';
+                                    echo '<div class="employeesLandingCustomerChild">
+                                            Username: ' . $customerRow['username'] . '<br>
+                                            Email: ' . $customerRow['email'] . '<br>
+                                            Phone: ' . $customerRow['phone'] . '<br>
+                                            Order: ' . $customerRow['orders'] .
+                                            '<div class="employeesLandingCustomerChildBtn"><span>Edit Order</span>
+                                                <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
+                                            </div>
+                                            <div class="employeesLandingCustomerChildBtn"><span>Delete</span>
+                                                <svg viewBox="0 0 640 512"><path d="M469.66 181.65l-11.31-11.31c-3.12-3.12-8.19-3.12-11.31 0L384 233.37l-63.03-63.03c-3.12-3.12-8.19-3.12-11.31 0l-11.31 11.31c-3.12 3.12-3.12 8.19 0 11.31L361.38 256l-63.03 63.03c-3.12 3.12-3.12 8.19 0 11.31l11.31 11.31c3.12 3.12 8.19 3.12 11.31 0L384 278.63l63.03 63.03c3.12 3.12 8.19 3.12 11.31 0l11.31-11.31c3.12-3.12 3.12-8.19 0-11.31L406.63 256l63.03-63.03a8.015 8.015 0 0 0 0-11.32zM576 64H205.26C188.28 64 172 70.74 160 82.74L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm32 320c0 17.64-14.36 32-32 32H205.26c-8.55 0-16.58-3.33-22.63-9.37L32 256l150.63-150.63c6.04-6.04 14.08-9.37 22.63-9.37H576c17.64 0 32 14.36 32 32v256z"></path></svg>
                                             </div>
                                         </div>';
-                                    }
+                                    echo '</div>';                    
                                 }
-                            ?>
-                            <div class="employeesLandingCustomerDiv">
-                                <span> - <a href="">Add Customer</a></span>
-                            </div>
+                            }
+                        ?>
+                        <div class="employeesLandingCustomerDiv">
+                            <span> - <a href="">Add Customer</a></span>
                         </div>
                     </div>
 
@@ -143,14 +151,18 @@
                                 for ($i = 0; $i < mysqli_num_rows($contactRslt); $i++) {
                                     $contactMessageRow = mysqli_fetch_array($contactRslt);
                                     echo '<div class="employeesLandingContactParent">';
-                                    echo '<div onmousedown="employeesLandingContactPress(' . $i. ');" class="employeesLandingContactTitle">Message ' . ($i+1);
-                                    echo '<svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>';
-                                    echo '<svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>';
-                                    echo '</div>';
+                                    echo '<div onmousedown="employeesLandingContactPress(' . $i. ');" class="employeesLandingContactTitle">Message ' . ($i+1) . '
+                                            <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
+                                            <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
+                                        </div>';
                                     echo '<div class="employeesLandingContactChild">
                                             Name: ' . $contactMessageRow['name'] . '<br>
                                             Email: ' . $contactMessageRow['email'] . '<br>
-                                            Message: ' . $contactMessageRow['message'] . '</div>';                
+                                            Message: ' . $contactMessageRow['message'] . 
+                                            '<div class="employeesLandingContactChildBtn"><span>Delete</span>
+                                                <svg viewBox="0 0 640 512"><path d="M469.66 181.65l-11.31-11.31c-3.12-3.12-8.19-3.12-11.31 0L384 233.37l-63.03-63.03c-3.12-3.12-8.19-3.12-11.31 0l-11.31 11.31c-3.12 3.12-3.12 8.19 0 11.31L361.38 256l-63.03 63.03c-3.12 3.12-3.12 8.19 0 11.31l11.31 11.31c3.12 3.12 8.19 3.12 11.31 0L384 278.63l63.03 63.03c3.12 3.12 8.19 3.12 11.31 0l11.31-11.31c3.12-3.12 3.12-8.19 0-11.31L406.63 256l63.03-63.03a8.015 8.015 0 0 0 0-11.32zM576 64H205.26C188.28 64 172 70.74 160 82.74L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm32 320c0 17.64-14.36 32-32 32H205.26c-8.55 0-16.58-3.33-22.63-9.37L32 256l150.63-150.63c6.04-6.04 14.08-9.37 22.63-9.37H576c17.64 0 32 14.36 32 32v256z"></path></svg>
+                                            </div>
+                                        </div>';
                                     echo '</div>';                    
                                 }
                             }
@@ -192,7 +204,7 @@
                         <div>Customers</div>
                     </a>
                     <a onmousedown="employeesBtnPress(1); employeesEditBtnHide();" class="employeesLandingRightBtn">
-                        <svg viewBox="0 0 448 512"><path d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg>
+                        <svg viewBox="0 0 512 512"><path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"></path></svg>
                         <div>Contact</div>
                     </a>
                     <a onmousedown="employeesBtnPress(2); employeesEditBtnHide();" class="employeesLandingRightBtn">
@@ -230,6 +242,15 @@
         }
     }
 
+    function employeesLandingCustomerPress(elem) {
+        parentArr = document.getElementsByClassName("employeesLandingCustomerParent");
+        for (var i = 0; i < parentArr.length; i++) {
+            if (i != elem) {
+                parentArr[i].classList.remove("selected");
+            }
+        }
+        parentArr[elem].classList.toggle("selected");
+    }
     function employeesLandingContactPress(elem) {
         parentArr = document.getElementsByClassName("employeesLandingContactParent");
         for (var i = 0; i < parentArr.length; i++) {
