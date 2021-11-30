@@ -64,6 +64,18 @@
     opacity: 0 !important;
     display: none !important;
 }
+.red {
+    background-color: #bb000080;
+}
+.red:hover {
+    background-color: #bb0000aa;
+}
+.green {
+    background-color: #00bb0080;
+}
+.green:hover {
+    background-color: #00bb00aa;
+}
 
 /* Customer & Contact Forms */
 .employeesLandingCustomerParent, .employeesLandingContactParent {
@@ -125,7 +137,6 @@
     padding-top: 7px;
     border-radius: 10px;
     text-align: center;
-    background-color: #bb000080;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
@@ -133,7 +144,6 @@
 }
 .employeesLandingCustomerParent .employeesLandingCustomerChildBtn:hover, .employeesLandingContactParent .employeesLandingContactChildBtn:hover {
     cursor: pointer;
-    background-color: #bb0000aa;
 }
 .employeesLandingCustomerParent .employeesLandingCustomerChildBtn span, .employeesLandingContactParent .employeesLandingContactChildBtn span {
     vertical-align: top;
@@ -194,7 +204,6 @@
     padding-top: 7px;
     border-radius: 10px;
     text-align: center;
-    background-color: #bb000080;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
@@ -209,7 +218,6 @@
 }
 .employeesLandingCustomerChildSubmitBtn:hover {
     cursor: pointer;
-    background-color: #bb0000aa;
 }
 .employeesLandingCustomerChildSubmitBtn span {
     vertical-align: top;

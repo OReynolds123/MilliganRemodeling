@@ -137,13 +137,13 @@
                                             - Progress: ' . $customerOrderRow['progress'] . '%<br>
                                             - Cost: $' . $customerOrderRow['cost'] . '<br>
                                             - Paid: ' . $customerOrderRow['isPaid'] . 
-                                            '<div onmousedown="employeesLandingCustomerEditHide(this)" class="employeesLandingCustomerChildBtn"><span>Edit Order</span>
+                                            '<div onmousedown="employeesLandingCustomerEditHide(this)" class="employeesLandingCustomerChildBtn green"><span>Edit Order</span>
                                                 <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
                                             </div>
                                             <form method="post" action="../javascripts/employeeCustomerForm.php">
                                                 <input type="hidden" id="editID" name="editID" value="' . $customerRow['id'] . '">
                                                 <input type="hidden" id="editOrderID" name="editOrderID" value="' . $customerRow['orders'] . '">
-                                                <button type="submit" name="delete" class="employeesLandingCustomerChildSubmitBtn">
+                                                <button type="submit" name="delete" class="employeesLandingCustomerChildSubmitBtn red">
                                                     <span>Delete</span>
                                                     <svg viewBox="0 0 640 512"><path d="M469.66 181.65l-11.31-11.31c-3.12-3.12-8.19-3.12-11.31 0L384 233.37l-63.03-63.03c-3.12-3.12-8.19-3.12-11.31 0l-11.31 11.31c-3.12 3.12-3.12 8.19 0 11.31L361.38 256l-63.03 63.03c-3.12 3.12-3.12 8.19 0 11.31l11.31 11.31c3.12 3.12 8.19 3.12 11.31 0L384 278.63l63.03 63.03c3.12 3.12 8.19 3.12 11.31 0l11.31-11.31c3.12-3.12 3.12-8.19 0-11.31L406.63 256l63.03-63.03a8.015 8.015 0 0 0 0-11.32zM576 64H205.26C188.28 64 172 70.74 160 82.74L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm32 320c0 17.64-14.36 32-32 32H205.26c-8.55 0-16.58-3.33-22.63-9.37L32 256l150.63-150.63c6.04-6.04 14.08-9.37 22.63-9.37H576c17.64 0 32 14.36 32 32v256z"></path></svg>
                                                 </button>
@@ -161,11 +161,11 @@
                                             - Progress: <input class="employeesLandingCustomerChildInput" type="text" name="editOrderProgress" placeholder="' . $customerOrderRow['progress'] . '"><br>
                                             - Cost: $<input class="employeesLandingCustomerChildInput" type="text" name="editOrderCost" placeholder="' . $customerOrderRow['cost'] . '"><br>
                                             - Paid: <input class="employeesLandingCustomerChildInput" type="text" name="editOrderPaid" placeholder="' . $customerOrderRow['isPaid'] . '"><br>' . 
-                                            '<button type="submit" name="edit" class="employeesLandingCustomerChildSubmitBtn">
+                                            '<button type="submit" name="edit" class="employeesLandingCustomerChildSubmitBtn green">
                                                 <span>Update Order</span>
                                                 <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
                                             </button>
-                                            <button type="submit" name="delete" class="employeesLandingCustomerChildSubmitBtn">
+                                            <button type="submit" name="delete" class="employeesLandingCustomerChildSubmitBtn red">
                                                 <span>Delete</span>
                                                 <svg viewBox="0 0 640 512"><path d="M469.66 181.65l-11.31-11.31c-3.12-3.12-8.19-3.12-11.31 0L384 233.37l-63.03-63.03c-3.12-3.12-8.19-3.12-11.31 0l-11.31 11.31c-3.12 3.12-3.12 8.19 0 11.31L361.38 256l-63.03 63.03c-3.12 3.12-3.12 8.19 0 11.31l11.31 11.31c3.12 3.12 8.19 3.12 11.31 0L384 278.63l63.03 63.03c3.12 3.12 8.19 3.12 11.31 0l11.31-11.31c3.12-3.12 3.12-8.19 0-11.31L406.63 256l63.03-63.03a8.015 8.015 0 0 0 0-11.32zM576 64H205.26C188.28 64 172 70.74 160 82.74L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm32 320c0 17.64-14.36 32-32 32H205.26c-8.55 0-16.58-3.33-22.63-9.37L32 256l150.63-150.63c6.04-6.04 14.08-9.37 22.63-9.37H576c17.64 0 32 14.36 32 32v256z"></path></svg>
                                             </button>
@@ -189,7 +189,7 @@
                                 - Progress: <input class="employeesLandingCustomerChildInput" type="text" name="editCustomerOrderProgress" placeholder="0%" required><br>
                                 - Cost: <input class="employeesLandingCustomerChildInput" type="text" name="editCustomerOrderCost" placeholder="0.00" required><br>
                                 - Paid: <input class="employeesLandingCustomerChildInput" type="text" name="editCustomerOrderPaid" placeholder="No" required><br>
-                                <button type="submit" name="add" class="employeesLandingCustomerChildSubmitBtn">
+                                <button type="submit" name="add" class="employeesLandingCustomerChildSubmitBtn green">
                                     <span>Create Customer</span>
                                     <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
                                 </button>
@@ -208,59 +208,58 @@
                             } else {
                                 $contactSql = "SELECT `id`,`name`,`email`,`message` FROM `contact`";
                                 $contactRslt = $conn->query($contactSql);
-                                for ($i = 0; $i < mysqli_num_rows($contactRslt); $i++) {
-                                    $contactMessageRow = mysqli_fetch_array($contactRslt);
+                                if (mysqli_num_rows($contactRslt) == 0) {
                                     echo '<div class="employeesLandingContactParent">';
-                                    echo '<div onmousedown="employeesLandingContactPress(' . $i. ');" class="employeesLandingContactTitle">Message ' . ($i+1) . '
-                                            <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
+                                    echo '<div class="employeesLandingContactTitle">No Messages
                                             <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                                         </div>';
-                                    echo '<div class="employeesLandingContactChild">
-                                            Name: ' . $contactMessageRow['name'] . '<br>
-                                            Email: ' . $contactMessageRow['email'] . '<br>
-                                            Message: ' . $contactMessageRow['message'] . 
-                                            '<form method="post" action="../javascripts/employeeContactForm.php">
-                                                <input type="hidden" id="contactDeleteID" name="contactDeleteID" value="' . $contactMessageRow['id'] . '">
-                                                <button type="submit" class="employeesLandingCustomerChildSubmitBtn">
-                                                    <span>Delete</span>
-                                                    <svg viewBox="0 0 640 512"><path d="M469.66 181.65l-11.31-11.31c-3.12-3.12-8.19-3.12-11.31 0L384 233.37l-63.03-63.03c-3.12-3.12-8.19-3.12-11.31 0l-11.31 11.31c-3.12 3.12-3.12 8.19 0 11.31L361.38 256l-63.03 63.03c-3.12 3.12-3.12 8.19 0 11.31l11.31 11.31c3.12 3.12 8.19 3.12 11.31 0L384 278.63l63.03 63.03c3.12 3.12 8.19 3.12 11.31 0l11.31-11.31c3.12-3.12 3.12-8.19 0-11.31L406.63 256l63.03-63.03a8.015 8.015 0 0 0 0-11.32zM576 64H205.26C188.28 64 172 70.74 160 82.74L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm32 320c0 17.64-14.36 32-32 32H205.26c-8.55 0-16.58-3.33-22.63-9.37L32 256l150.63-150.63c6.04-6.04 14.08-9.37 22.63-9.37H576c17.64 0 32 14.36 32 32v256z"></path></svg>
-                                                </button>
-                                            </form>
-                                        </div>';
-                                    echo '</div>';                    
+                                    echo '</div>';
+                                } else {
+                                    for ($i = 0; $i < mysqli_num_rows($contactRslt); $i++) {
+                                        $contactMessageRow = mysqli_fetch_array($contactRslt);
+                                        echo '<div class="employeesLandingContactParent">';
+                                        echo '<div onmousedown="employeesLandingContactPress(' . $i. ');" class="employeesLandingContactTitle">Message ' . ($i+1) . '
+                                                <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
+                                                <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
+                                            </div>';
+                                        echo '<div class="employeesLandingContactChild">
+                                                Name: ' . $contactMessageRow['name'] . '<br>
+                                                Email: ' . $contactMessageRow['email'] . '<br>
+                                                Message: ' . $contactMessageRow['message'] . 
+                                                '<form method="post" action="../javascripts/employeeContactForm.php">
+                                                    <input type="hidden" id="contactDeleteID" name="contactDeleteID" value="' . $contactMessageRow['id'] . '">
+                                                    <button type="submit" class="employeesLandingCustomerChildSubmitBtn red">
+                                                        <span>Delete</span>
+                                                        <svg viewBox="0 0 640 512"><path d="M469.66 181.65l-11.31-11.31c-3.12-3.12-8.19-3.12-11.31 0L384 233.37l-63.03-63.03c-3.12-3.12-8.19-3.12-11.31 0l-11.31 11.31c-3.12 3.12-3.12 8.19 0 11.31L361.38 256l-63.03 63.03c-3.12 3.12-3.12 8.19 0 11.31l11.31 11.31c3.12 3.12 8.19 3.12 11.31 0L384 278.63l63.03 63.03c3.12 3.12 8.19 3.12 11.31 0l11.31-11.31c3.12-3.12 3.12-8.19 0-11.31L406.63 256l63.03-63.03a8.015 8.015 0 0 0 0-11.32zM576 64H205.26C188.28 64 172 70.74 160 82.74L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm32 320c0 17.64-14.36 32-32 32H205.26c-8.55 0-16.58-3.33-22.63-9.37L32 256l150.63-150.63c6.04-6.04 14.08-9.37 22.63-9.37H576c17.64 0 32 14.36 32 32v256z"></path></svg>
+                                                    </button>
+                                                </form>
+                                            </div>';
+                                        echo '</div>';                    
+                                    }
                                 }
                             }
                         ?>
                     </div>
 
                     <div class="employeesLandingLeft hide">
-                        <div class="employeesLandingLeftEditBtnDiv">
-                            <a onmousedown="employeesEditBtnToggle(this);" class="employeesLandingLeftEditBtn">
-                                <div>Edit</div>
-                                <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
-                            </a>
-                        </div>
-                        <div class="employeesLandingLeftEdit">
-                            <div style="font-size:25px">Profile:</div>
-                            <div style="font-size:22px"> - Full Name: <span class="employeesLandingLeftInfo"><?php echo $_SESSION["name"]; ?></span></div>
-                            <div style="font-size:22px"> - Username: <span class="employeesLandingLeftInfo"><?php echo $_SESSION["username"]; ?></span></div>
-                            <div style="font-size:22px"> - Password: <span class="employeesLandingLeftInfo"><?php echo str_repeat('*', strlen($_SESSION["password"])); ?></span></div>
-                        </div>
-                        <div class="employeesLandingLeftEdit hide">
-                            <form action="../javascripts/employeesForm.php" method="post">
-                                <div style="font-size:25px">Profile:</div>
-                                <div style="font-size:22px"> - Full Name: <input class="employeesLandingFormInput" type="text" name="editName" placeholder="<?php echo $_SESSION["name"]; ?>"></div>
-                                <div style="font-size:22px"> - Username: <input class="employeesLandingFormInput" type="text" name="editUser" placeholder="<?php echo $_SESSION["username"]; ?>"></div>
-                                <div style="font-size:22px"> - Password: <input class="employeesLandingFormInput" type="password" name="editPass" placeholder="<?php echo $_SESSION["password"];?>"></div>
-                                <div class="btnDiv" style="margin: 10px auto 0 auto; width:125px; height:30px;">
-                                    <div class="btnDivWrap">
-                                        <div class="btnBkg"></div>
-                                        <input class="btn" onmouseover="moveBtnBkgRight(this);" onmouseleave="moveBtnBkgLeft(this);" type="submit">
-                                    </div>
-                                </div>
+                        <div style="font-size:25px">Profile:</div>
+                        <div class="employeesLandingCustomerParent">
+                            <div onmousedown="employeesLandingProfilePress(this);" class="employeesLandingCustomerTitle"><?php echo $_SESSION['name']; ?>
+                                <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
+                                <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
+                            </div>
+                            <form class="employeesLandingCustomerChild" method="POST" action="../javascripts/employeeForm.php">
+                                Full Name: <input class="employeesLandingCustomerChildInput" type="text" name="editEmployeeName" placeholder="<?php echo $_SESSION["name"]; ?>"><br>
+                                Username: <input class="employeesLandingCustomerChildInput" type="text" name="editEmployeeUser" placeholder="<?php echo $_SESSION["username"]; ?>"><br>
+                                Password: <input class="employeesLandingCustomerChildInput" type="password" name="editEmployeePass" placeholder="<?php echo $_SESSION["password"];?>"><br>
+                                <button type="submit" name="add" class="employeesLandingCustomerChildSubmitBtn green">
+                                    <span>Update Profile</span>
+                                    <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
+                                </button>
                             </form>
                         </div>
                     </div>
+                
                 </div>
                 <div class="employeesLandingRightDiv">
                     <a onmousedown="employeesBtnPress(0); employeesEditBtnHide();" class="employeesLandingRightBtn active">
@@ -300,14 +299,19 @@
             } else if (checkurl == "success=2") {
                 document.getElementsByClassName("pageLandingTitle")[0].style.paddingTop = "0px";
                 document.getElementsByClassName("employeesLandingSuccessBanner")[0].style.height = "50px";
-                document.getElementsByClassName("employeesLandingSuccessBanner")[0].innerHTML = "Success! User Order Updated.";
+                document.getElementsByClassName("employeesLandingSuccessBanner")[0].innerHTML = "Success! Order Updated.";
                 document.getElementsByClassName("employeesLandingSuccessBanner")[0].style.color = "#000000";
             } else if (checkurl == "success=3") {
                 document.getElementsByClassName("pageLandingTitle")[0].style.paddingTop = "0px";
                 document.getElementsByClassName("employeesLandingSuccessBanner")[0].style.height = "50px";
-                document.getElementsByClassName("employeesLandingSuccessBanner")[0].innerHTML = "Success! User Deleted.";
+                document.getElementsByClassName("employeesLandingSuccessBanner")[0].innerHTML = "Success! User/Order Deleted.";
                 document.getElementsByClassName("employeesLandingSuccessBanner")[0].style.color = "#000000";
             } else if (checkurl == "success=4") {
+                document.getElementsByClassName("pageLandingTitle")[0].style.paddingTop = "0px";
+                document.getElementsByClassName("employeesLandingSuccessBanner")[0].style.height = "50px";
+                document.getElementsByClassName("employeesLandingSuccessBanner")[0].innerHTML = "Success! User/Order Added.";
+                document.getElementsByClassName("employeesLandingSuccessBanner")[0].style.color = "#000000";
+            } else if (checkurl == "success=5") {
                 document.getElementsByClassName("pageLandingTitle")[0].style.paddingTop = "0px";
                 document.getElementsByClassName("employeesLandingSuccessBanner")[0].style.height = "50px";
                 document.getElementsByClassName("employeesLandingSuccessBanner")[0].innerHTML = "Success! Contact Message Deleted.";
@@ -338,6 +342,9 @@
             }
         }
         parentArr[elem].classList.toggle("selected");
+    }
+    function employeesLandingProfilePress(elem) {
+        elem.parentElement.classList.toggle("selected");
     }
 
     function employeesLandingCustomerEditHide(elem) {
