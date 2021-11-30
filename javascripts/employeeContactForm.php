@@ -9,7 +9,7 @@
     } else {
         $employeeCustomerDeleteSql = "DELETE FROM `contact` WHERE `contact`.`id` = '" . $id ."'";
         if ($conn->query($employeeCustomerDeleteSql)) {
-            header("Location: ../pages/employees.php?success=4");
+            header("Location: ../pages/employees.php?success=5");
             exit;
         } else {
             header("Location: ../pages/employees.php?success=0");
