@@ -54,7 +54,7 @@
             header("Location: ../pages/employees.php?success=0");
             exit;
         } else {
-            $employeeCustomerDeleteOrderSql = "DELETE FROM `orders` WHERE `id` = '" . $id1 . "'";
+            $employeeCustomerDeleteOrderSql = "DELETE FROM `orders` WHERE `orders`.`id` = '" . $id1 . "'";
             if ($conn->query($employeeCustomerDeleteOrderSql)) {
                 $employeeCustomerDeleteSql = "DELETE FROM `customer` WHERE `customer`.`id` = '" . $id . "'";
                 if ($conn->query($employeeCustomerDeleteSql)) {
