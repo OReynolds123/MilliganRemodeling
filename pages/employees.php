@@ -12,7 +12,7 @@
     $config = parse_ini_file("../javascripts/.ht.ini");
     $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
     if (mysqli_connect_error()) {
-        header("Location: ./error.html?success=-1");
+        header("Location: error.html?success=0");
         exit;
     } else {
         $sql1 = "SELECT `id`,`name` FROM `employees` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
@@ -26,10 +26,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Milligan Remodeling</title>
+    <title>Employees</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <meta name="description" content="Milligan Remodeling" />
+    <meta name="description" content="Employees" />
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="../stylesheets/stylesheet.css">
     <link rel="stylesheet" href="../stylesheets/employees.css">
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <!-- Info Landing -->
+    <!-- Page Landing -->
     <div class="pageLanding">
         <div class="pageLandingDiv">
             <div style="position:relative;">
@@ -97,20 +97,31 @@
             
             <div class="employeesLandingDiv">
                 <div class="employeesLandingLeftDiv">
-                    
+
                     <div class="employeesLandingLeft">
                         <div style="font-size:25px">Customers:</div>
                         <?php
                             $config = parse_ini_file("../javascripts/.ht.ini");
                             $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
                             if (mysqli_connect_error()) {
-                                header("Location: ./error.html?success=-1");
+                                header("Location: error.html?success=0");
                                 exit;
                             } else {
                                 $customerSql = "SELECT `username`,`name`,`email`,`phone`,`orders` FROM `customer`";
                                 $customerRslt = $conn->query($customerSql);
                                 for ($i = 0; $i < mysqli_num_rows($customerRslt); $i++) {
                                     $customerRow = mysqli_fetch_array($customerRslt);
+
+                                    $customerOrderSql = "SELECT `name`,`progress`,`description`,`cost`,`isPaid` FROM `orders` WHERE `id`='" . $customerRow['orders'] . "'";
+                                    $customerOrderRslt = $conn->query($customerOrderSql);
+                                    $customerOrderRow = mysqli_fetch_array($customerOrderRslt);
+                                    if (is_null($customerOrderRow)) {
+                                        $customerOrderRow['name'] = "";
+                                        $customerOrderRow['description'] = "";
+                                        $customerOrderRow['progress'] = "";
+                                        $customerOrderRow['cost'] = "";
+                                        $customerOrderRow['isPaid'] = "";
+                                    }
                                     echo '<div class="employeesLandingCustomerParent">';
                                     echo '<div onmousedown="employeesLandingCustomerPress(' . $i. ');" class="employeesLandingCustomerTitle">' . $customerRow['name'] . '
                                             <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
@@ -120,7 +131,12 @@
                                             Username: ' . $customerRow['username'] . '<br>
                                             Email: ' . $customerRow['email'] . '<br>
                                             Phone: ' . $customerRow['phone'] . '<br>
-                                            Order: ' . $customerRow['orders'] .
+                                            Order: <br>
+                                            - Name: ' . $customerOrderRow['name'] . '<br>
+                                            - Description: ' . $customerOrderRow['description'] . '<br>
+                                            - Progress: ' . $customerOrderRow['progress'] . '%<br>
+                                            - Cost: ' . $customerOrderRow['cost'] . '<br>
+                                            - Paid: ' . $customerOrderRow['isPaid'] . 
                                             '<div class="employeesLandingCustomerChildBtn"><span>Edit Order</span>
                                                 <svg viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm406.6 204.1l-34.7-34.7c-6.3-6.3-14.5-9.4-22.8-9.4-8.2 0-16.5 3.1-22.8 9.4L327.8 424l-7.6 68.2c-1.2 10.7 7.2 19.8 17.7 19.8.7 0 1.3 0 2-.1l68.2-7.6 222.5-222.5c12.5-12.7 12.5-33.1 0-45.7zM393.3 473.7l-39.4 4.5 4.4-39.5 156.9-156.9 35 35-156.9 156.9zm179.5-179.5l-35-35L573 224h.1l.2.1 34.7 35-35.2 35.1zM134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 20.7 0 39.9 6.3 56 16.9l22.8-22.8c-22.2-16.2-49.3-26-78.8-26-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h243.5c-2.8-7.4-4.1-15.4-3.2-23.4l1-8.6H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320z" ></path></svg>
                                             </div>
@@ -143,7 +159,7 @@
                             $config = parse_ini_file("../javascripts/.ht.ini");
                             $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
                             if (mysqli_connect_error()) {
-                                header("Location: ./error.html?success=-1");
+                                header("Location: error.html?success=0");
                                 exit;
                             } else {
                                 $contactSql = "SELECT `name`,`email`,`message` FROM `contact`";

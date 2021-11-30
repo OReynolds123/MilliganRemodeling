@@ -12,7 +12,7 @@
     $config = parse_ini_file("../javascripts/.ht.ini");
     $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
     if (mysqli_connect_error()) {
-        header("Location: ./error.html?success=-1");
+        header("Location: error.html?success=0");
         exit;
     } else {
         $sql1 = "SELECT `id`,`name`,`email`,`phone`,`card`,`orders` FROM `customer` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
@@ -39,10 +39,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Milligan Remodeling</title>
+    <title>Customers</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <meta name="description" content="Milligan Remodeling" />
+    <meta name="description" content="Customers" />
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="../stylesheets/stylesheet.css">
     <link rel="stylesheet" href="../stylesheets/customer.css">
@@ -97,7 +97,7 @@
         </div>
     </div>
 
-    <!-- Info Landing -->
+    <!-- Page Landing -->
     <div class="pageLanding">
         <div class="pageLandingDiv">
             <div style="position:relative;">

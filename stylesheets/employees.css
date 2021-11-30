@@ -24,6 +24,48 @@
     -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
 }
 
+/* Right Nav Bar */
+.employeesLandingRightDiv {
+    height: auto;
+    flex: 200px;
+    border-left: 2px solid var(--p1);
+}
+.employeesLandingRightBtn {
+    display: flex;
+    width: 100px;
+    height: 50px;
+    border-bottom: 1px solid var(--p1);
+    margin: auto;
+    justify-content: left;
+}
+.employeesLandingRightBtn.active {
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.employeesLandingRightBtn:hover {
+    cursor: pointer;
+    color: var(--p2);
+    border-color: var(--p2);
+}
+.employeesLandingRightBtn svg {
+    width: 20px;
+    height: 20px;
+    margin: auto 0;
+    fill: currentColor;
+}
+.employeesLandingRightBtn div {
+    margin: auto 0;
+    padding-left: 10px;
+    width: min-content;
+    font-size: 22px;
+}
+
+.hide {
+    opacity: 0;
+    display: none;
+}
+
+/*  */
 .employeesLandingLeftDiv {
     height: max-content;
     flex: calc(100% - 150px);
@@ -77,48 +119,7 @@
     border-bottom-color: var(--p2);
 }
 
-.employeesLandingRightDiv {
-    height: auto;
-    flex: 200px;
-    border-left: 2px solid var(--p1);
-}
-.employeesLandingRightBtn {
-    display: flex;
-    width: 100px;
-    height: 50px;
-    border-bottom: 1px solid var(--p1);
-    margin: auto;
-    justify-content: left;
-}
-.employeesLandingRightBtn.active {
-    color: var(--p2);
-    border-color: var(--p2);
-}
-.employeesLandingRightBtn:hover {
-    cursor: pointer;
-    color: var(--p2);
-    border-color: var(--p2);
-}
-.employeesLandingRightBtn svg {
-    width: 20px;
-    height: 20px;
-    margin: auto 0;
-    fill: currentColor;
-}
-.employeesLandingRightBtn div {
-    margin: auto 0;
-    padding-left: 10px;
-    width: min-content;
-    font-size: 22px;
-}
-
-.hide {
-    opacity: 0;
-    display: none;
-}
-
-
-/* Employee Customer & Contact Forms */
+/* Customer & Contact Forms */
 .employeesLandingCustomerParent, .employeesLandingContactParent {
     display: inline-block;
     width: 100%;
@@ -126,6 +127,10 @@
     border-radius: 10px;
     margin: 0;
     margin-top: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 .employeesLandingCustomerParent .employeesLandingCustomerTitle, .employeesLandingContactParent .employeesLandingContactTitle {
     border-radius: 10px;
@@ -137,6 +142,10 @@
     width: calc(100% - 30px);
     font-weight: 450;
     box-shadow: #00000059 0px 5px 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 .employeesLandingCustomerParent .employeesLandingCustomerTitle:hover, .employeesLandingContactParent .employeesLandingContactTitle:hover {
     cursor: pointer;
@@ -158,6 +167,10 @@
     overflow: hidden;
     border-radius: 10px;
     box-shadow: #00000059 0px 5px 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 .employeesLandingCustomerParent .employeesLandingCustomerChildBtn, .employeesLandingContactParent .employeesLandingContactChildBtn {
     margin-top: 10px;
