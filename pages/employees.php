@@ -136,7 +136,7 @@
                                         </div>';
                                     echo '<div class="customerLandingCustomerChild">
                                             Username: ' . $customerRow['username'] . '<br>
-                                            Email: ' . $customerRow['email'] . '<br>
+                                            Email: <a style="text-decoration: underline;" href="mailto:' . $customerRow['email'] . '">' . $customerRow['email'] . '</a><br>
                                             Phone: ' . $customerRow['phone'] . '<br>
                                             Order #' . $customerRow['orders'] . ':<br>
                                             - Name: ' . $customerOrderRow['name'] . '<br>
@@ -194,7 +194,7 @@
                                 - Name: <input class="customerLandingCustomerChildInput" type="text" name="editCustomerOrderName" placeholder="Project" required><br>
                                 - Description: <input class="customerLandingCustomerChildInput" type="text" name="editCustomerOrderDescription" placeholder="In Progress" required><br>
                                 - Progress: <input class="customerLandingCustomerChildInput" type="text" name="editCustomerOrderProgress" placeholder="0%" required><br>
-                                - Cost: <input class="customerLandingCustomerChildInput" type="text" name="editCustomerOrderCost" placeholder="0.00" required><br>
+                                - Cost: $<input class="customerLandingCustomerChildInput" type="text" name="editCustomerOrderCost" placeholder="0.00" required><br>
                                 - Paid: <input class="customerLandingCustomerChildInput" type="text" name="editCustomerOrderPaid" placeholder="No" required><br>
                                 <button type="submit" name="add" class="customerLandingCustomerChildSubmitBtn green">
                                     <span>Create Customer</span>
@@ -280,7 +280,7 @@
                                             </div>';
                                         echo '<div class="customerLandingCustomerChild">
                                                 Name: ' . $contactMessageRow['name'] . '<br>
-                                                Email: ' . $contactMessageRow['email'] . '<br>
+                                                Email: <a style="text-decoration: underline;" href="mailto:' . $contactMessageRow['email'] . '">' . $contactMessageRow['email'] . '</a><br>
                                                 Message: ' . $contactMessageRow['message'] . 
                                                 '<form method="post" action="../javascripts/employeeContactForm.php">
                                                     <input type="hidden" id="contactDeleteID" name="contactDeleteID" value="' . $contactMessageRow['id'] . '">
