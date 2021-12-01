@@ -2,13 +2,6 @@
     max-width: 700px;
 }
 
-.customerLandingDiv {
-    width: calc(100% - calc(var(--spacing)*2));
-    height: 100%;
-    padding: 0 var(--spacing) var(--spacing) var(--spacing); 
-    display: flex;
-}
-
 .customerLandingSuccessBanner {
     width: 100%;
     height: 0px;
@@ -24,59 +17,19 @@
     -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
 }
 
+.customerLandingDiv {
+    width: calc(100% - calc(var(--spacing)*2));
+    height: 100%;
+    padding: 0 var(--spacing) var(--spacing) var(--spacing); 
+    display: flex;
+}
 .customerLandingLeftDiv {
     height: max-content;
     flex: calc(100% - 150px);
     padding: 20px;
 }
-.customerLandingLeftInfo {
-    font-weight: 370;
-}
-.customerLandingLeftEditBtnDiv {
-    position: relative;
-}
-.customerLandingLeftEditBtn {
-    display: flex;
-    justify-content: right;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.customerLandingLeftEditBtn:hover {
-    cursor: pointer;
-    color: var(--p2);
-    border-color: var(--p2);
-}
-.customerLandingLeftEditBtn div {
-    margin: auto 0;
-    width: min-content;
-    font-size: 22px;
-    padding-right: 5px;
-}
-.customerLandingLeftEditBtn svg {
-    width: 20px;
-    height: 20px;
-    margin: auto 0;
-    fill: currentColor;
-}
-.customerLandingFormInput {
-    border: none;
-    outline: none;
-    touch-action: manipulation;
-    -ms-touch-action: manipulation;
-    border-bottom: 1px solid var(--p1);
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    font-size: 20px;
-    font-family: system-ui;
-}
-.customerLandingFormInput:focus-within {
-    border-bottom-color: var(--p2);
-}
 
+/* Right Nav Bar */
 .customerLandingRightDiv {
     height: auto;
     flex: 200px;
@@ -84,7 +37,7 @@
 }
 .customerLandingRightBtn {
     display: flex;
-    width: 100px;
+    width: max-content;
     height: 50px;
     border-bottom: 1px solid var(--p1);
     margin: auto;
@@ -113,6 +66,171 @@
 }
 
 .hide {
-    opacity: 0;
+    opacity: 0 !important;
+    display: none !important;
+}
+.red {
+    background-color: #bb000080;
+}
+.red:hover {
+    background-color: #bb0000aa;
+}
+.green {
+    background-color: #00bb0080;
+}
+.green:hover {
+    background-color: #00bb00aa;
+}
+
+/* Customer, Contact, & Profile Forms */
+.customerLandingCustomerParent, .customerLandingEmployeeParent, .customerLandingContactParent {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    margin: 0;
+    margin-top: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.customerLandingCustomerTitle {
+    border-radius: 10px;
+    line-height: 30px;
+    height: 30px;
+    display: inline;
+    float: left;
+    padding: 10px 15px;
+    width: calc(100% - 30px);
+    font-weight: 450;
+    box-shadow: #00000059 0px 5px 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.customerLandingCustomerTitle:hover {
+    cursor: pointer;
+    background-color: #efefef;
+    fill: var(--p2);
+    color: var(--p2);
+}
+.customerLandingCustomerTitle svg {
+    display: inline;
+    width: 30px;
+    float: right;
+}
+.customerLandingCustomerTitle .up {
     display: none;
+    overflow: hidden;
+}
+.customerLandingCustomerChild {
+    display: none;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: #00000059 0px 5px 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.customerLandingCustomerChildBtn {
+    margin-top: 10px;
+    box-shadow: #00000059 0px 2px 10px;
+    padding: 5px 10px;
+    padding-top: 7px;
+    border-radius: 10px;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.customerLandingCustomerChildBtn:hover {
+    cursor: pointer;
+}
+.customerLandingCustomerChildBtn span {
+    vertical-align: top;
+    line-height: 30px;
+}
+.customerLandingCustomerChildBtn svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    padding-top: 4px;
+}
+.selected:hover {
+    background-color: inherit;
+}
+.selected .customerLandingCustomerTitle {
+    border: none;
+    box-shadow: none;
+}
+.selected .customerLandingCustomerTitle:hover {
+    cursor: pointer;
+    background-color: inherit;
+}
+.selected .customerLandingCustomerTitle .up {
+    display: inline;
+    overflow: visible;
+}
+.selected .customerLandingCustomerTitle .down {
+    display: none;
+    overflow: hidden;
+}
+.selected .customerLandingCustomerChild {
+    display: block;
+    overflow: visible;
+    padding: 10px 15px;
+    width: calc(100% - 30px);
+}
+.customerLandingCustomerChildInput {
+    border: none;
+    outline: none;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    border-bottom: 1px solid var(--p1);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    font-family: system-ui;
+    display: inline-block;
+}
+.customerLandingCustomerChildInput:focus-within {
+    border-bottom-color: var(--p2);
+}
+.customerLandingCustomerChildSubmitBtn {
+    margin-top: 10px;
+    box-shadow: #00000059 0px 2px 10px;
+    padding: 5px 10px;
+    padding-top: 7px;
+    border-radius: 10px;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: system-ui;
+    font-weight: 300;
+    font-size: 15px;
+    display: block;
+    width: 100%;
+}
+.customerLandingCustomerChildSubmitBtn:hover {
+    cursor: pointer;
+}
+.customerLandingCustomerChildSubmitBtn span {
+    vertical-align: top;
+    line-height: 30px;
+}
+.customerLandingCustomerChildSubmitBtn svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    padding-top: 4px;
 }
