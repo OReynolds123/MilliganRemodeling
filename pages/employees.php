@@ -264,7 +264,7 @@
                             } else {
                                 $contactSql = "SELECT `id`,`name`,`email`,`message` FROM `contact`";
                                 $contactRslt = $conn->query($contactSql);
-                                if (mysqli_num_rows($contactRslt) == 0) {
+                                if (mysqli_num_rows($contactRslt) < 1) {
                                     echo '<div class="customerLandingContactParent">';
                                     echo '<div class="customerLandingCustomerTitle">No Messages
                                             <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>

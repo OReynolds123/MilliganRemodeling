@@ -17,22 +17,43 @@
     } else {
         $sql1 = "SELECT `id`,`name`,`email`,`phone`,`card`,`orders` FROM `customer` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
         $rslt1 = $conn->query($sql1);
-        $row1 = mysqli_fetch_array($rslt1);
-        $_SESSION["id"] = $row1['id'];
-        $_SESSION["name"] = $row1['name'];
-        $_SESSION["email"] = $row1['email'];
-        $_SESSION["phone"] = $row1['phone'];
-        $_SESSION["card"] = $row1['card'];
-        $_SESSION["orders"] = $row1['orders'];
+        if (mysqli_num_rows($rslt1) < 1) {
+            $_SESSION["id"] = "";
+            $_SESSION["username"] = "";
+            $_SESSION["password"] = "";
+            $_SESSION["name"] = "";
+            $_SESSION["email"] = "";
+            $_SESSION["phone"] = "";
+            $_SESSION["card"] = "";
+            $_SESSION["orders"] = "";
+            session_destroy();
+            header("Location: ../pages/login.html");
+        } else {
+            $row1 = mysqli_fetch_array($rslt1);
+            $_SESSION["id"] = $row1['id'];
+            $_SESSION["name"] = $row1['name'];
+            $_SESSION["email"] = $row1['email'];
+            $_SESSION["phone"] = $row1['phone'];
+            $_SESSION["card"] = $row1['card'];
+            $_SESSION["orders"] = $row1['orders'];
+        }
 
         $sql2 = "SELECT `name`,`progress`,`description`,`cost`,`isPaid` FROM `orders` WHERE `id`='" . $_SESSION["orders"] . "'";
         $rslt2 = $conn->query($sql2);
-        $row2 = mysqli_fetch_array($rslt2);
-        $_SESSION["orderName"] = $row2['name'];
-        $_SESSION["prog"] = $row2['progress'];
-        $_SESSION["desc"] = $row2['description'];
-        $_SESSION["cost"] = $row2['cost'];
-        $_SESSION["paid"] = $row2['isPaid'];
+        if (mysqli_num_rows($rslt2) < 1) {
+            $_SESSION["orderName"] = "";
+            $_SESSION["prog"] = "";
+            $_SESSION["desc"] = "";
+            $_SESSION["cost"] = "";
+            $_SESSION["paid"] = "";
+        } else {
+            $row2 = mysqli_fetch_array($rslt2);
+            $_SESSION["orderName"] = $row2['name'];
+            $_SESSION["prog"] = $row2['progress'];
+            $_SESSION["desc"] = $row2['description'];
+            $_SESSION["cost"] = $row2['cost'];
+            $_SESSION["paid"] = $row2['isPaid'];
+        }
     }
 ?>
 
