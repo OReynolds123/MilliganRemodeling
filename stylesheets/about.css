@@ -30,6 +30,9 @@
 .infoLandingTableCellDesc {
     font-size: 15px;
 }
+ul{
+    text-align: center;
+}
 
 @media screen and (max-width: 1200px) {
     .infoLandingTableCellDiv {
