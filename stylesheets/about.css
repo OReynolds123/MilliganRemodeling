@@ -1,0 +1,42 @@
+/* About Landing */
+.infoLandingTableDiv {
+    width: 90%;
+    display: flex;
+    margin: auto;
+}
+.infoLandingTableCellDiv {
+    height: max-content;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%
+}
+.infoLandingTableCell {
+    width: calc(33% - 40px);
+    padding: 0 20px 30px 20px;
+    display: inline-block;
+    height: max-content;
+    text-align: center;
+    margin: 0 auto;
+}
+.infoLandingTableCellLogo {
+    width: 80px;
+    text-align: center;
+    margin: 0 auto;
+    fill: var(--p2);
+}
+.infoLandingTableCellTitle {
+    font-size: 30px;
+}
+.infoLandingTableCellDesc {
+    font-size: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+    .infoLandingTableCellDiv {
+        width: 100%;
+    }
+    .infoLandingTableCell {
+        width: 60%;
+        padding: 0 0 30px 0;
+    }
+}
