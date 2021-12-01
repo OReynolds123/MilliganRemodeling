@@ -423,6 +423,10 @@ a.anchor {
 }
 .projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap .btn:hover {
     color: var(--black1);
+    fill: var(--black1);
+}
+.projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap .btn:hover svg {
+    fill: var(--black1);
 }
 .projectsLandingContainerRight {
     flex: 100%;
@@ -484,9 +488,8 @@ a.anchor {
 /* Testimonials Landing*/
 .testimonialsLandingDiv {
     width: 100%;
-    height: 500px;
+    height: min-content;
     border-radius: var(--bdrRad);
-    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
     -webkit-border-radius: var(--bdrRad);
     -moz-border-radius: var(--bdrRad);
     -ms-border-radius: var(--bdrRad);
