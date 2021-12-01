@@ -398,8 +398,8 @@ a.anchor {
 .projectsLandingContainerLeftLogo {
     width: 50px;
     height: 50px;
-    background-color: var(--white1);
     margin: auto;
+    fill: var(--white1);
 }
 .projectsLandingContainerLeftOptionsDiv {
     display: flex;
@@ -423,6 +423,10 @@ a.anchor {
 }
 .projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap .btn:hover {
     color: var(--black1);
+    fill: var(--black1);
+}
+.projectsLandingContainerLeftOptionsDiv .btnDiv .btnDivWrap .btn:hover svg {
+    fill: var(--black1);
 }
 .projectsLandingContainerRight {
     flex: 100%;
@@ -476,7 +480,7 @@ a.anchor {
     -ms-border-radius: var(--bdrRad);
     -o-border-radius: var(--bdrRad);
     /*background: linear-gradient(to left top, #00000000 70%, #ffffffff 100%), url(../images/bkg1.jpg);*/
-    background: url(../images/bkg1.jpg);
+    background-image: url(../images/bkg1.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -484,9 +488,8 @@ a.anchor {
 /* Testimonials Landing*/
 .testimonialsLandingDiv {
     width: 100%;
-    height: 500px;
+    height: min-content;
     border-radius: var(--bdrRad);
-    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
     -webkit-border-radius: var(--bdrRad);
     -moz-border-radius: var(--bdrRad);
     -ms-border-radius: var(--bdrRad);
@@ -510,7 +513,8 @@ a.anchor {
 }
 .btnDivWrap {
     width: 100%;
-    display: block;
+    display: flex;
+    align-items: center;
     position: relative;
     z-index: 1;
     border-radius: 25px;
@@ -521,6 +525,20 @@ a.anchor {
     -moz-border-radius: 25;
     -ms-border-radius: 25;
     -o-border-radius: 25;
+}
+.btnDivWrap input {
+    outline: none;
+    border: none;
+}
+.btnDivWrap a {
+    outline: none;
+    border: none;
+}
+.btnDivWrap a svg {
+    margin-left: 10px;
+    width: min-content;
+    height: 20px;
+    fill: var(--white1);
 }
 .btnBkg {
     position: absolute;
@@ -545,14 +563,6 @@ a.anchor {
 }
 .btn:hover {
     cursor: pointer;
-}
-.btnDivWrap input {
-    outline: none;
-    border: none;
-}
-.btnDivWrap a {
-    outline: none;
-    border: none;
 }
 
 /* @MEDIA */

@@ -1,11 +1,11 @@
 <?php
     session_start();
-    $name = filter_var($_POST['editName'], FILTER_SANITIZE_STRING);
-    $user = filter_var($_POST['editUser'], FILTER_SANITIZE_STRING);
-    $pass = filter_var($_POST['editPass'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['editEmail'], FILTER_SANITIZE_EMAIL);
-    $phone = filter_var($_POST['editPhone'], FILTER_SANITIZE_STRING);
-    $card = filter_var($_POST['editCard'], FILTER_SANITIZE_STRING);
+    $name = filter_var($_POST['editCustomerName'], FILTER_SANITIZE_STRING);
+    $user = filter_var($_POST['editCustomerUser'], FILTER_SANITIZE_STRING);
+    $pass = filter_var($_POST['editCustomerPass'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['editCustomerEmail'], FILTER_SANITIZE_EMAIL);
+    $phone = filter_var($_POST['editCustomerPhone'], FILTER_SANITIZE_STRING);
+    $card = filter_var($_POST['editCustomerCard'], FILTER_SANITIZE_STRING);
 
     if ($name == "") {
         $name = $_SESSION["name"];
@@ -25,7 +25,6 @@
     if ($card == "") {
         $card = $_SESSION["card"];
     }
-
 
     $config = parse_ini_file(".ht.ini");
     $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
