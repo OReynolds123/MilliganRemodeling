@@ -29,10 +29,10 @@ a.anchor {
 }
 :root {
     --p1: #949ca3d0;
-    --p2: #9e1b32; /* Blue: 1b5f9e*/
-    --white1: #ffffff;
+    --p2: #9e1b32; /* Blue: 1b5f9e*/ /* Red: 9e1b32 */
+    --white1: #fffdfd; /* ffffff */
     --black1: #000000;
-    --bkg: #828A8F;
+    --bkg: #e6e6e6; /* 828A8F */
     --wdth: 80%;
     --spacing: 20px;
     --bdrRad: 10px;
@@ -164,7 +164,8 @@ a.anchor {
     top: 0;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(#22222240 0%,#22222240 60%, var(--bkg) 100%),url('../images/bkg.jpg');
+    background-image: linear-gradient(#44444420 0%,#44444460 70%, var(--bkg) 100%),url('../images/bkg.jpg');
+    /* background-image: linear-gradient(#22222220 0%,#22222260 60%, var(--bkg) 100%),url('../images/bkg.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -229,7 +230,8 @@ a.anchor {
     -moz-border-radius: var(--bdrRad);
     -ms-border-radius: var(--bdrRad);
     -o-border-radius: var(--bdrRad);
-    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
+    /*box-shadow: 5px 5px 5px 0px var(--bkShadClr);*/
+    box-shadow: #00000059 2px 5px 10px;
 }
 .pageLandingTitleDiv {
     width: 100%;
@@ -276,7 +278,7 @@ a.anchor {
     -moz-transition: all 0.5s linear;
     -ms-transition: all 0.5s linear;
     -o-transition: all 0.5s linear;
-    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
+    box-shadow: #00000059 2px 5px 10px;
 }
 .processLandingContainer:nth-child(2) {
     margin: 0 var(--spacing);
@@ -357,11 +359,11 @@ a.anchor {
     flex-wrap: wrap;
     justify-content: center;
     border-radius: var(--bdrRad);
-    box-shadow: 5px 5px 5px 0px var(--bkShadClr);
     -webkit-border-radius: var(--bdrRad);
     -moz-border-radius: var(--bdrRad);
     -ms-border-radius: var(--bdrRad);
     -o-border-radius: var(--bdrRad);
+    box-shadow: #00000059 2px 5px 10px;
 }
 .projectsLandingContainerLeft {
     flex: 100%;
