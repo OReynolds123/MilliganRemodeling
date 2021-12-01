@@ -234,3 +234,13 @@
     vertical-align: middle;
     padding-top: 4px;
 }
+
+@media screen and (max-width: 600px) {
+    .customerLandingRightDiv {
+        flex: auto;
+    }
+    .customerLandingRightBtn div {
+        display: none;
+        overflow: hidden;
+    }
+}
