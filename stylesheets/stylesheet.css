@@ -29,13 +29,16 @@ a.anchor {
 }
 :root {
     --p1: #949ca3d0;
+    --p1Solid: #949ca3;
     --p2: #9e1b32; /* Blue: 1b5f9e*/ /* Red: 9e1b32 */
     --white1: #fffdfd; /* ffffff */
     --black1: #000000;
     --bkg: #e6e6e6; /* 828A8F */
     --wdth: 80%;
+    --wdthOther: 80%;
     --spacing: 20px;
     --bdrRad: 10px;
+    --bdrRadOther: 10px;
     --bkShadClr: #00000080;
 }
 
@@ -218,19 +221,18 @@ a.anchor {
 /* General Page Landing */
 .pageLanding {
     position: relative;
-    width: var(--wdth);
+    width: var(--wdthOther);
     display: block;
     margin: auto;
     margin-bottom: var(--spacing);
     background-color: var(--white1);
-    border-radius: var(--bdrRad);
+    border-radius: var(--bdrRadOther);
     animation: fadeIn 0.5s linear;
     -webkit-animation: fadeIn 0.5s linear;
-    -webkit-border-radius: var(--bdrRad);
-    -moz-border-radius: var(--bdrRad);
-    -ms-border-radius: var(--bdrRad);
-    -o-border-radius: var(--bdrRad);
-    /*box-shadow: 5px 5px 5px 0px var(--bkShadClr);*/
+    -webkit-border-radius: var(--bdrRadOther);
+    -moz-border-radius: var(--bdrRadOther);
+    -ms-border-radius: var(--bdrRadOther);
+    -o-border-radius: var(--bdrRadOther);
     box-shadow: #00000059 2px 5px 10px;
 }
 .pageLandingTitleDiv {
@@ -602,12 +604,14 @@ a.anchor {
     right: 40px;
 }
 .testimonialsLandingQuoteArrowLeft svg, .testimonialsLandingQuoteArrowRight svg {
-    height: 40px;
+    height: 50px;
     width: min-content;
 }
 .testimonialsLandingQuoteArrowLeft svg:hover, .testimonialsLandingQuoteArrowRight svg:hover {
     cursor: pointer;
-    fill: var(--p2);
+}
+.testimonialsLandingQuoteArrowLeft svg:hover path:last-child, .testimonialsLandingQuoteArrowRight svg:hover path:last-child {
+    fill: var(--p2) !important;
 }
 
 /* General Button */
@@ -686,6 +690,12 @@ a.anchor {
     .landingText {
         font-size: 30px;
     }
+    .testimonialsLandingQuoteArrowLeft {
+        left: 10px !important;
+    }
+    .testimonialsLandingQuoteArrowRight {
+        right: 10px !important;
+    }
 }
 @media screen and (max-height: 600px) {
     .menuOverlay a {
@@ -739,6 +749,12 @@ a.anchor {
     }
     .projectsLandingContainerRightImg {
         margin: auto;
+    }
+    .testimonialsLandingQuoteArrowLeft {
+        left: 20px;
+    }
+    .testimonialsLandingQuoteArrowRight {
+        right: 20px;
     }
 }
 @media only screen and (min-width: 1001px) {
