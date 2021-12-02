@@ -17,6 +17,7 @@
     height: max-content;
     text-align: center;
     margin: 0 auto;
+    vertical-align: middle;
 }
 .infoLandingTableCellLogo {
     width: 80%;
