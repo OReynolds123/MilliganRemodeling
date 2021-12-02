@@ -19,10 +19,17 @@
     margin: 0 auto;
 }
 .infoLandingTableCellLogo {
-    width: 80px;
+    width: 80%;
     text-align: center;
     margin: 0 auto;
-    fill: var(--p2);
+}
+.infoLandingTableCellLogo img {
+    width: 100%;
+    border-radius: var(--bdrRadOther);
+    -webkit-border-radius: var(--bdrRadOther);
+    -moz-border-radius: var(--bdrRadOther);
+    -ms-border-radius: var(--bdrRadOther);
+    -o-border-radius: var(--bdrRadOther);
 }
 .infoLandingTableCellTitle {
     font-size: 30px;
