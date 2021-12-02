@@ -497,13 +497,118 @@ a.anchor {
     -ms-border-radius: var(--bdrRad);
     -o-border-radius: var(--bdrRad);
 }
+.testimonialsLandingContainer {
+    padding-top: var(--spacing);
+    border-radius: var(--bdrRad);
+    background-color: white;
+    -webkit-border-radius: var(--bdrRad);
+    -moz-border-radius: var(--bdrRad);
+    -ms-border-radius: var(--bdrRad);
+    -o-border-radius: var(--bdrRad);
+    transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    box-shadow: #00000059 2px 5px 10px;
+}
 .testimonialsLandingTitle {
     font-size: 40px;
-    text-align: left;
-    color: var(--white1);
+    text-align: center;
     font-weight: 100;
+    line-height: 40px;
 }
-
+.hide {
+    display: none;
+    overflow: hidden;
+}
+.testimonialsLandingQuoteDiv {
+    width: 100%;
+    margin: auto;
+    padding-top: 25px;
+}
+.testimonialsLandingQuoteText {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.testimonialsLandingQuoteImage {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--p1);
+    border-radius: 100%;
+    background-color: var(--white1);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+.testimonialsLandingQuoteName {
+    text-align: center;
+    margin-top: 50px;
+    padding: 70px 0 20px 0;
+    background-color: var(--p2);
+    font-size: 30px;
+    color: var(--white1);
+    border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -webkit-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -moz-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -ms-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+    -o-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
+}
+.testimonialsLandingQuoteCircleDiv {
+    width: min-content;
+    margin: 15px auto 0 auto;
+    display: flex;
+}
+.testimonialsLandingQuoteCircleDiv div {
+    margin: 0 3px;
+    height: 10px;
+    width: 10px;
+    background-color: var(--p1);
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+.testimonialsLandingQuoteCircleDiv div:hover {
+    cursor: pointer;
+}
+.testimonialsLandingQuoteCircleDiv div.active {
+    background-color: var(--white1);
+}
+.testimonialsLandingQuoteArrowLeft, .testimonialsLandingQuoteArrowRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.testimonialsLandingQuoteArrowLeft {
+    left: 40px;
+}
+.testimonialsLandingQuoteArrowRight {
+    right: 40px;
+}
+.testimonialsLandingQuoteArrowLeft svg, .testimonialsLandingQuoteArrowRight svg {
+    height: 40px;
+    width: min-content;
+}
+.testimonialsLandingQuoteArrowLeft svg:hover, .testimonialsLandingQuoteArrowRight svg:hover {
+    cursor: pointer;
+    fill: var(--p2);
+}
 
 /* General Button */
 .btnDiv {
