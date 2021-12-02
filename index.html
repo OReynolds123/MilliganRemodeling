@@ -188,8 +188,8 @@
             <div class="projectsLandingContainerRight">
                 <a class="anchor" id="projectsLandingContainer" style="top: -85px"></a>
                 <div class="projectsLandingContainerRightTextDiv">
-                    <div class="projectsLandingContainerRightTitle">Project 1</div>
-                    <div class="projectsLandingContainerRightText">This is sample text for project 1.</div>
+                    <div class="projectsLandingContainerRightTitle"></div>
+                    <div class="projectsLandingContainerRightText"></div>
                     <div class="projectsLandingContainerRightButtonDiv">
                         <div class="btnDiv">
                             <div class="btnDivWrap">
@@ -264,20 +264,24 @@
 
 <script src="javascripts/navbar.js"></script>
 <script>
+    projectsLandingContainer(0);
     function projectsLandingContainer(num) {
-        document.getElementsByClassName("projectsLandingContainerRightTitle")[0].innerHTML = "Project " + (num + 1);
         if (num == 0) {
-            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This is sample text for project.";
+            document.getElementsByClassName("projectsLandingContainerRightTitle")[0].innerHTML = "Main Kitchen";
+            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This was a complete main kitchen overhaul with updated cabinets, appliances, flooring, and countertops.";
             document.getElementsByClassName("projectsLandingContainerRightImg")[0].style.backgroundImage = "url(images/bkg1.jpg)";
         } else if (num == 1) {
-            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This is sample text for project.";
-            document.getElementsByClassName("projectsLandingContainerRightImg")[0].style.backgroundImage = "url(images/bkg.jpg)";
+            document.getElementsByClassName("projectsLandingContainerRightTitle")[0].innerHTML = "Master Bathroom";
+            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This was a master bathroom remodel with new tile for the shower and floor. Topped off with a beautiful white tub and matte black metals.";
+            document.getElementsByClassName("projectsLandingContainerRightImg")[0].style.backgroundImage = "url(images/Pic14.jpg)";
         } else if(num == 2) {
-            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This is sample text for project.";
-            document.getElementsByClassName("projectsLandingContainerRightImg")[0].style.backgroundImage = "url(images/bkg1.jpg)";
+            document.getElementsByClassName("projectsLandingContainerRightTitle")[0].innerHTML = "Antique Kitchen";
+            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This remodel focused on keeping with the original style of the house and kitchen, updating the appliances, flooring, tile, and cabinets.";
+            document.getElementsByClassName("projectsLandingContainerRightImg")[0].style.backgroundImage = "url(images/Pic9.jpg)";
         } else if(num == 3) {
-            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This is sample text for project.";
-            document.getElementsByClassName("projectsLandingContainerRightImg")[0].style.backgroundImage = "url(images/bkg.jpg)";
+            document.getElementsByClassName("projectsLandingContainerRightTitle")[0].innerHTML = "Screened Covered Patio";
+            document.getElementsByClassName("projectsLandingContainerRightText")[0].innerHTML = "This project added a screened-in, lean-to covered patio with two fans that, in the end, added another furnished room to the house.";
+            document.getElementsByClassName("projectsLandingContainerRightImg")[0].style.backgroundImage = "url(images/Pic7.jpg)";
         }
     }
     

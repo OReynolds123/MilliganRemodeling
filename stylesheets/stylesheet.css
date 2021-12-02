@@ -305,18 +305,18 @@ a.anchor {
     -o-border-radius: var(--bdrRad) var(--bdrRad) 0 0;
 }
 .processLandingContainer:nth-child(1) .processLandingContainerPicDiv .processLandingContainerPic {
-    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%), url("../images/bkg1.jpg");
+    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%), url("../images/Pic8.jpg");
 }
 .processLandingContainer:nth-child(2) .processLandingContainerPicDiv .processLandingContainerPic {
     border-radius: 0 0 var(--bdrRad) var(--bdrRad);
-    background: linear-gradient(var(--white1) 0%,#88888880 50%, #00000000 100%), url("../images/bkg1.jpg");
+    background: linear-gradient(var(--white1) 0%,#88888880 50%, #00000000 100%), url("../images/Pic3.jpg");
     -webkit-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
     -moz-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
     -ms-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
     -o-border-radius: 0 0 var(--bdrRad) var(--bdrRad);
 }
 .processLandingContainer:nth-child(3) .processLandingContainerPicDiv .processLandingContainerPic {
-    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%), url("../images/bkg1.jpg");
+    background: linear-gradient(#00000000 0%,#88888880 50%, var(--white1) 100%), url("../images/Pic6.jpg");
 }
 .processLandingContainerInfoDiv {
     height: 50%;
@@ -448,7 +448,7 @@ a.anchor {
     display: flex;
 }
 .projectsLandingContainerRightTextDiv {
-    flex: auto;
+    flex: 40%;
     margin: auto;
     display: block;
     text-align: left;
@@ -483,10 +483,9 @@ a.anchor {
     -moz-border-radius: var(--bdrRad);
     -ms-border-radius: var(--bdrRad);
     -o-border-radius: var(--bdrRad);
-    /*background: linear-gradient(to left top, #00000000 70%, #ffffffff 100%), url(../images/bkg1.jpg);*/
-    background-image: url(../images/bkg1.jpg);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 /* Testimonials Landing*/
