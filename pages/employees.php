@@ -1,20 +1,23 @@
 <?php 
+    # Check for sessions
     session_start();
-    if (empty($_SESSION["username"])) {
+    if (empty($_SESSION["username"])) { # Redirect to login page if no sessions
         header("Location: ../pages/login.html");
         exit;
     }
-    if ($_SESSION['employee'] != TRUE) {
+    if ($_SESSION['employee'] != TRUE) { # Redirect to customer page if customer user
         header("Location: ../pages/customer.php");
         exit;
     }
 
-    $config = parse_ini_file("../javascripts/.ht.ini");
-    $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
-    if (mysqli_connect_error()) {
+    # Connect to the database
+    $config = parse_ini_file("../javascripts/.ht.ini"); # Parse the secure information from this hidden file
+    $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']); # Connect to the database
+    if (mysqli_connect_error()) { # On error, redirect to an error page
         header("Location: error.html?success=0");
         exit;
     } else {
+        # Get the id and name of the current employee
         $sql1 = "SELECT `id`,`name` FROM `employees` WHERE `username`='" . $_SESSION["username"] . "' AND `password`='" . $_SESSION["password"] . "'";
         $rslt1 = $conn->query($sql1);
         if (mysqli_num_rows($rslt1) < 1) {
@@ -95,30 +98,34 @@
     <div class="pageLanding">
         <div class="pageLandingDiv">
             <div style="position:relative;">
-                <div class="customerLandingSuccessBanner"></div>
+                <div class="customerLandingSuccessBanner"></div> <!-- Banner to show response information -->
             </div>
 
             <div class="pageLandingTitleDiv">
-                <span class="pageLandingTitle">Employees</span>
+                <span class="pageLandingTitle">Employees</span> <!-- Title -->
             </div>
             
             <div class="customerLandingDiv">
                 <div class="customerLandingLeftDiv">
+                    <!-- The employee form has 4 containers -->
                     <!-- Customers -->
                     <div class="customerLandingLeft">
-                        <div style="font-size:25px">Customers:</div>
+                        <div style="font-size:25px">Customers:</div> <!-- Title -->
                         <?php
+                            # Connect to the database
                             $config = parse_ini_file("../javascripts/.ht.ini");
                             $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
                             if (mysqli_connect_error()) {
                                 header("Location: error.html?success=0");
                                 exit;
                             } else {
+                                # Get the customer information
                                 $customerSql = "SELECT `id`,`username`,`name`,`email`,`phone`,`orders` FROM `customer`";
                                 $customerRslt = $conn->query($customerSql);
+                                # For each customer
                                 for ($i = 0; $i < mysqli_num_rows($customerRslt); $i++) {
                                     $customerRow = mysqli_fetch_array($customerRslt);
-
+                                    # Get the corresponding order information
                                     $customerOrderSql = "SELECT `name`,`progress`,`description`,`cost`,`isPaid` FROM `orders` WHERE `id`='" . $customerRow['orders'] . "'";
                                     $customerOrderRslt = $conn->query($customerOrderSql);
                                     $customerOrderRow = mysqli_fetch_array($customerOrderRslt);
@@ -129,11 +136,13 @@
                                         $customerOrderRow['cost'] = "";
                                         $customerOrderRow['isPaid'] = "";
                                     }
+                                    # HTML code to show
                                     echo '<div class="customerLandingCustomerParent">';
                                     echo '<div onmousedown="employeesLandingCustomerPress(' . $i. ');" class="customerLandingCustomerTitle">' . $customerRow['name'] . '
                                             <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
                                             <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                                         </div>';
+                                    # Read and delete the customer
                                     echo '<div class="customerLandingCustomerChild">
                                             Username: ' . $customerRow['username'] . '<br>
                                             Email: <a style="text-decoration: underline;" href="mailto:' . $customerRow['email'] . '">' . $customerRow['email'] . '</a><br>
@@ -156,6 +165,7 @@
                                                 </button>
                                             </form>
                                         </div>';
+                                    # Edit the customer order information
                                     echo '<form class="customerLandingCustomerChild hide" method="POST" action="../javascripts/employeeCustomerForm.php">
                                             Username: ' . $customerRow['username'] . '<br>
                                             Email: ' . $customerRow['email'] . '<br>
@@ -181,12 +191,13 @@
                                 }
                             }
                         ?>
+                        <!-- Button to add a new customer and order -->
                         <div class="customerLandingCustomerParent">
                             <div onmousedown="employeesLandingCustomerPress(<?php echo mysqli_num_rows($customerRslt); ?>);" class="customerLandingCustomerTitle">Add Customer
                                 <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
                                 <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                             </div>
-                            <form class="customerLandingCustomerChild" method="POST" action="../javascripts/employeeCustomerForm.php">
+                            <form class="customerLandingCustomerChild" method="POST" action="../javascripts/employeeCustomerForm.php"> <!-- Create a new customer and order -->
                                 Full Name: <input class="customerLandingCustomerChildInput" type="text" name="editCustomerName" placeholder="John Doe" required><br>
                                 Username: <input class="customerLandingCustomerChildInput" type="text" name="editCustomerUsername" placeholder="jdoe" required><br>
                                 Password: <input class="customerLandingCustomerChildInput" type="password" name="editCustomerPassword" placeholder="jdoe123" required><br>
@@ -207,21 +218,26 @@
                     <div class="customerLandingLeft hide">
                         <div style="font-size:25px">Employees:</div>
                         <?php
+                            # Connect to the database
                             $config = parse_ini_file("../javascripts/.ht.ini");
                             $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
                             if (mysqli_connect_error()) {
                                 header("Location: error.html?success=0");
                                 exit;
                             } else {
+                                # Get the employee information
                                 $employeeSql = "SELECT `id`,`username`,`name` FROM `employees`";
                                 $employeeRslt = $conn->query($employeeSql);
+                                # For each employee
                                 for ($i = 0; $i < mysqli_num_rows($employeeRslt); $i++) {
                                     $employeeRow = mysqli_fetch_array($employeeRslt);
+                                    # HTML code to show
                                     echo '<div class="customerLandingEmployeeParent">';
                                     echo '<div onmousedown="employeesLandingEmployeePress(' . $i. ');" class="customerLandingCustomerTitle">' . $employeeRow['name'] . '
                                             <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
                                             <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                                         </div>';
+                                    # Delete the employee
                                     echo '<div class="customerLandingCustomerChild">
                                             Username: ' . $employeeRow['username'] . '
                                             <form method="post" action="../javascripts/employeeEmployeeForm.php">
@@ -236,12 +252,13 @@
                                 }
                             }
                         ?>
+                        <!-- Button to create a new employee -->
                         <div class="customerLandingEmployeeParent">
                             <div onmousedown="employeesLandingEmployeePress(<?php echo mysqli_num_rows($employeeRslt); ?>);" class="customerLandingCustomerTitle">Add Employee
                                 <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
                                 <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                             </div>
-                            <form class="customerLandingCustomerChild" method="POST" action="../javascripts/employeeEmployeeForm.php">
+                            <form class="customerLandingCustomerChild" method="POST" action="../javascripts/employeeEmployeeForm.php"> <!-- Create a new employee -->
                                 Full Name: <input class="customerLandingCustomerChildInput" type="text" name="editEmployeeName" placeholder="John Doe" required><br>
                                 Username: <input class="customerLandingCustomerChildInput" type="text" name="editEmployeeUsername" placeholder="jdoe" required><br>
                                 Password: <input class="customerLandingCustomerChildInput" type="password" name="editEmployeePassword" placeholder="jdoe123" required><br>
@@ -256,28 +273,34 @@
                     <div class="customerLandingLeft hide">
                         <div style="font-size:25px">Contact:</div>
                         <?php
+                            # Connect to the database
                             $config = parse_ini_file("../javascripts/.ht.ini");
                             $conn = new mysqli($config['srvr'], $config['user'], $config['pass'], $config['data']);
                             if (mysqli_connect_error()) {
                                 header("Location: error.html?success=0");
                                 exit;
                             } else {
+                                # Get the contact messages
                                 $contactSql = "SELECT `id`,`name`,`email`,`message` FROM `contact`";
                                 $contactRslt = $conn->query($contactSql);
                                 if (mysqli_num_rows($contactRslt) < 1) {
+                                    # If no contact messages
                                     echo '<div class="customerLandingContactParent">';
                                     echo '<div class="customerLandingCustomerTitle">No Messages
                                             <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                                         </div>';
                                     echo '</div>';
                                 } else {
+                                    # For each contact message
                                     for ($i = 0; $i < mysqli_num_rows($contactRslt); $i++) {
                                         $contactMessageRow = mysqli_fetch_array($contactRslt);
+                                        # HTML code to show
                                         echo '<div class="customerLandingContactParent">';
                                         echo '<div onmousedown="employeesLandingContactPress(' . $i. ');" class="customerLandingCustomerTitle">Message ' . ($i+1) . '
                                                 <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
                                                 <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                                             </div>';
+                                        # See and delete the contact message
                                         echo '<div class="customerLandingCustomerChild">
                                                 Name: ' . $contactMessageRow['name'] . '<br>
                                                 Email: <a style="text-decoration: underline;" href="mailto:' . $contactMessageRow['email'] . '">' . $contactMessageRow['email'] . '</a><br>
@@ -304,7 +327,7 @@
                                 <svg class="up" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>
                                 <svg class="down" viewBox="0 0 24 24"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path></svg>
                             </div>
-                            <form class="customerLandingCustomerChild" method="POST" action="../javascripts/employeeForm.php">
+                            <form class="customerLandingCustomerChild" method="POST" action="../javascripts/employeeForm.php"> <!-- Update employee profile information -->
                                 Full Name: <input class="customerLandingCustomerChildInput" type="text" name="editEmployeeName" placeholder="<?php echo $_SESSION["name"]; ?>"><br>
                                 Username: <input class="customerLandingCustomerChildInput" type="text" name="editEmployeeUser" placeholder="<?php echo $_SESSION["username"]; ?>"><br>
                                 Password: <input class="customerLandingCustomerChildInput" type="password" name="editEmployeePass" placeholder="<?php echo $_SESSION["password"];?>"><br>
@@ -316,6 +339,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Navbar for the employee form -->
                 <div class="customerLandingRightDiv">
                     <a onmousedown="employeesBtnPress(0);" class="customerLandingRightBtn active">
                         <svg viewBox="0 0 640 512"><path d="M544 224c44.2 0 80-35.8 80-80s-35.8-80-80-80-80 35.8-80 80 35.8 80 80 80zm0-128c26.5 0 48 21.5 48 48s-21.5 48-48 48-48-21.5-48-48 21.5-48 48-48zM320 256c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm0-192c44.1 0 80 35.9 80 80s-35.9 80-80 80-80-35.9-80-80 35.9-80 80-80zm244 192h-40c-15.2 0-29.3 4.8-41.1 12.9 9.4 6.4 17.9 13.9 25.4 22.4 4.9-2.1 10.2-3.3 15.7-3.3h40c24.2 0 44 21.5 44 48 0 8.8 7.2 16 16 16s16-7.2 16-16c0-44.1-34.1-80-76-80zM96 224c44.2 0 80-35.8 80-80s-35.8-80-80-80-80 35.8-80 80 35.8 80 80 80zm0-128c26.5 0 48 21.5 48 48s-21.5 48-48 48-48-21.5-48-48 21.5-48 48-48zm304.1 180c-33.4 0-41.7 12-80.1 12-38.4 0-46.7-12-80.1-12-36.3 0-71.6 16.2-92.3 46.9-12.4 18.4-19.6 40.5-19.6 64.3V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-44.8c0-23.8-7.2-45.9-19.6-64.3-20.7-30.7-56-46.9-92.3-46.9zM480 432c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16v-44.8c0-16.6 4.9-32.7 14.1-46.4 13.8-20.5 38.4-32.8 65.7-32.8 27.4 0 37.2 12 80.2 12s52.8-12 80.1-12c27.3 0 51.9 12.3 65.7 32.8 9.2 13.7 14.1 29.8 14.1 46.4V432zM157.1 268.9c-11.9-8.1-26-12.9-41.1-12.9H76c-41.9 0-76 35.9-76 80 0 8.8 7.2 16 16 16s16-7.2 16-16c0-26.5 19.8-48 44-48h40c5.5 0 10.8 1.2 15.7 3.3 7.5-8.5 16.1-16 25.4-22.4z"></path></svg>
@@ -348,6 +372,7 @@
 <script>
     init();
     function init() {
+        // If the url has a ? in it, the user was redirected here with some sort of message
         if (window.location.href.includes("?")) {
             var checkurl = window.location.href.split("?")[1].split("#")[0];
             if (checkurl == "success=1") {
@@ -393,6 +418,7 @@
             }
         }
     }
+    // These functions show the hidden information when the corresponding title button is pressed on the employee navbar form
     function employeesLandingCustomerPress(elem) {
         parentArr = document.getElementsByClassName("customerLandingCustomerParent");
         for (var i = 0; i < parentArr.length; i++) {
