@@ -1,4 +1,6 @@
 <?php
+    # THIS FILE IS FOR UPDATING THE CURRENT EMPLOYEE INFORMATION
+    
     session_start();
 
     # Get the name, username, and password from the form

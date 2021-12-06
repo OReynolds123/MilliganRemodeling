@@ -1,4 +1,6 @@
 <?php
+    # THIS FILE IS FOR LOGGING OUT FROM THE EMPLOYEE/CUSTOMER FORMS
+
     # Deletes the current sessions
     session_start();
     $_SESSION["username"] = "";

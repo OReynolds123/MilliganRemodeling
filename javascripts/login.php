@@ -1,4 +1,6 @@
 <?php
+    # THIS FILE IS FOR LOGGING IN FROM THE LOGIN FORM
+
     # Starts sessions
     session_start();
 
