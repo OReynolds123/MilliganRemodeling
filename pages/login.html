@@ -64,18 +64,18 @@
         <div class="pageLandingDiv">
 
             <div style="position:relative;">
-                <div class="loginLandingSuccessBanner"></div>
+                <div class="loginLandingSuccessBanner"></div> <!-- Login/Logout/Error banner -->
             </div>
 
             <div class="pageLandingTitleDiv">
-                <span class="pageLandingTitle">Login</span>
+                <span class="pageLandingTitle">Login</span> <!-- Title -->
             </div>
     
             <!-- Login Form -->
             <div class="loginFormDiv">
-                <form class="loginForm" action="../javascripts/login.php" method="POST">
-                    <div class="loginFormInputDiv" data-validate="Username is required">
-                        <span class="loginFormInputTitle">Username</span>
+                <form class="loginForm" action="../javascripts/login.php" method="POST"> <!-- Login form that posts information to the login.php file -->
+                    <div class="loginFormInputDiv" data-validate="Username is required"> <!-- Username -->
+                        <span class="loginFormInputTitle">Username</span> 
                         <input class="loginFormInput" type="text" name="username" placeholder="Type your username">
                         <span class="loginFormInputIco">
                             <svg viewBox="0 0 448 512">
@@ -85,7 +85,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="loginFormInputDiv" data-validate="Password is required">
+                    <div class="loginFormInputDiv" data-validate="Password is required"> <!-- Password -->
                         <span class="loginFormInputTitle">Password</span>
                         <input class="loginFormInput" type="password" name="password" placeholder="Type your password">
                         <span class="loginFormInputIco">
@@ -96,7 +96,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="loginFormBtnDiv">
+                    <div class="loginFormBtnDiv"> <!-- Button -->
                         <div class="btnDiv">
                             <div class="btnDivWrap">
                                 <div class="btnBkg"></div>
@@ -115,6 +115,7 @@
 <script>
     init();
     function init() {
+        // If the url has a ? in it, the user was redirected here with some sort of message
         if (window.location.href.includes("?")) {
             var checkurl = window.location.href.split("?")[1];
             if (checkurl == "success=0") {

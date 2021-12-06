@@ -63,34 +63,34 @@
     <div class="pageLanding">
         <div class="pageLandingDiv">
             <div style="position:relative;">
-                <div class="contactLandingSuccessBanner"></div>
+                <div class="contactLandingSuccessBanner"></div> <!-- Success/Error banner -->
             </div>
             <div class="contactLandingDiv">
                 <div class="contactLandingDivLeft">
-                    <div class="contactLandingDivLeftImg"></div>
+                    <div class="contactLandingDivLeftImg"></div> <!-- Contact form image (only shown on large screens) -->
                 </div>
                 <div class="contactLandingDivRight">
                     <div class="contactLandingDivForm">
                         <div class="pageLandingTitleDiv">
-                            <span class="pageLandingTitle">Contact Us</span>
+                            <span class="pageLandingTitle">Contact Us</span> <!-- Title -->
                         </div>
-                        <form class="contactLandingForm" action="../javascripts/contactForm.php" method="post">
-                            <div class="contactLandingFormInputDiv" data-validate="Name is required">
+                        <form class="contactLandingForm" action="../javascripts/contactForm.php" method="post"> <!-- Form posts information to the contactForm.php file -->
+                            <div class="contactLandingFormInputDiv" data-validate="Name is required"> <!-- Name -->
                                 <span class="contactLandingFormInputTitle">Your Name</span>
                                 <input class="contactLandingFormInput" type="text" name="name"
                                     placeholder="Enter your full name...">
                             </div>
-                            <div class="contactLandingFormInputDiv" data-validate="Valid email is required: ex@abc.xyz">
+                            <div class="contactLandingFormInputDiv" data-validate="Valid email is required: ex@abc.xyz"> <!-- Email -->
                                 <span class="contactLandingFormInputTitle">Email</span>
                                 <input class="contactLandingFormInput" type="email" name="email"
                                     placeholder="Enter your email addess...">
                             </div>
-                            <div class="contactLandingFormInputDiv" data-validate="Message is required">
+                            <div class="contactLandingFormInputDiv" data-validate="Message is required"> <!-- Message -->
                                 <span class="contactLandingFormInputTitle">Message</span>
                                 <textarea class="contactLandingFormInput contactLandingFormInputText" name="message"
                                     placeholder="Your message here..."></textarea>
                             </div>
-                            <div class="contactLandingFormInputDiv">
+                            <div class="contactLandingFormInputDiv"> <!-- Submit Button -->
                                 <div class="btnDiv">
                                     <div class="btnDivWrap">
                                         <div class="btnBkg"></div>
@@ -110,15 +110,16 @@
 <script>
     init();
     function init() {
+        // If the url has a ? in it, the user was redirected here with some sort of message
         if (window.location.href.includes("?")) {
             var checkurl = window.location.href.split("?")[1].split("#")[0];
-            if (checkurl == "success=1") {
+            if (checkurl == "success=1") { // Show a success message if it worked
                 document.getElementsByClassName("contactLandingDivLeft")[0].style.marginTop = "40px";
                 document.getElementsByClassName("contactLandingDivRight")[0].style.marginTop = "40px";
                 document.getElementsByClassName("contactLandingSuccessBanner")[0].style.height = "50px";
                 document.getElementsByClassName("contactLandingSuccessBanner")[0].innerHTML = "Success! Contact Form Submitted.";
                 document.getElementsByClassName("contactLandingSuccessBanner")[0].style.color = "#000000";
-            } else if (checkurl == "success=0") {
+            } else if (checkurl == "success=0") { // Show a fail message if it didn't
                 document.getElementsByClassName("contactLandingDivLeft")[0].style.marginTop = "40px";
                 document.getElementsByClassName("contactLandingDivRight")[0].style.marginTop = "40px";
                 document.getElementsByClassName("contactLandingSuccessBanner")[0].style.height = "50px";
